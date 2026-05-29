@@ -1,4 +1,4 @@
-# AutoSphere – Comprehensive Technical Presentation
+# REMEdion – Comprehensive Technical Presentation
 ## Agentic Self-Healing Automation for Cloud & Infrastructure
 
 **Last Updated:** November 25, 2025  
@@ -12,7 +12,7 @@
 
 ## 1️⃣ Title & Company Context
 
-**AutoSphere** is an AI-driven SRE Co-Pilot that transforms reactive infrastructure operations into proactive, self-healing automation.
+**REMEdion** is an AI-driven SRE Co-Pilot that transforms reactive infrastructure operations into proactive, self-healing automation.
 
 ### Company Profile: Maisonduweb
 
@@ -23,7 +23,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ---
 
-## 2️⃣ Problem Statement: Before AutoSphere
+## 2️⃣ Problem Statement: Before REMEdion
 
 ### Existing Landscape Critique
 
@@ -37,7 +37,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ### Quantified Pain Points
 
-**Before AutoSphere:**
+**Before REMEdion:**
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │ OPERATIONAL PAIN METRICS (Baseline)                            │
@@ -64,13 +64,13 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ---
 
-## 3️⃣ Solution: AutoSphere Architecture
+## 3️⃣ Solution: REMEdion Architecture
 
 ### High-Level Capabilities
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    AUTOSPHERE CAPABILITIES                       │
+│                    REMEDION CAPABILITIES                        │
 ├─────────────────────────────────────────────────────────────────┤
 │ ✅ Anomaly Detection     │ Reactive (alerts) + Predictive (ML)  │
 │ ✅ Correlation           │ Group related alerts → single incident│
@@ -88,7 +88,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ## 3.1 System Layers & Project Scope
 
-AutoSphere runs on top of an existing observability and automation platform.  
+REMEdion runs on top of an existing observability and automation platform.  
 This repository contains **only the Agentic Core Engine** – not the full monitoring stack.
 
 ### 🔧 Observability & Monitoring Layer (Existing Platform – outside this repo)
@@ -104,12 +104,12 @@ Provided by the production environment and operated by Maisonduweb:
 - **Alerts**
   - Alertmanager – rule‑based reactive alerts
   - OpenSearch detectors – predictive alerts
-  - These alerts are emitted into the AutoSphere Core Engine as input events
+  - These alerts are emitted into the REMEdion Core Engine as input events
 
 
-### 🧠 AutoSphere Agentic Core Engine 
+### 🧠 REMEdion Agentic Core Engine 
 
-Implemented in this project using **LangGraph**, **LangChain**, **RAG (Qdrant)**, and **MCP servers**:
+Implemented in this project using **Mastra**, **Ollama/Claude**, **RAG (Qdrant)**, and **MCP servers**:
 
 - Ingestion, correlation, and deduplication of alerts
 - Smart routing and multi‑agent investigation (metrics, incident history, runbooks)
@@ -123,13 +123,13 @@ The rest of this document focuses on this **Agentic Core Engine**.
 
 # PART II: ARCHITECTURE DEEP-DIVE
 
-## 4️⃣ Logical Architecture: LangGraph State Machine
+## 4️⃣ Logical Architecture: Mastra State Machine
 
 ### Complete Flow Diagram
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│                    AUTOSPHERE LANGGRAPH WORKFLOW                      │
+│                    REMEDION MASTRA WORKFLOW                         │
 │                                                                       │
 │   ┌─────────────────────── INGESTION PIPELINE ───────────────────┐   │
 │   │                                                               │   │
@@ -233,7 +233,7 @@ The rest of this document focuses on this **Agentic Core Engine**.
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-### LangGraph Best Practices Implemented
+### Mastra Best Practices Implemented
 
 | Practice | Implementation | Code Location |
 |----------|----------------|---------------|
@@ -265,16 +265,16 @@ The rest of this document focuses on this **Agentic Core Engine**.
             │                    │                    │
             ▼                    ▼                    ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│                    AUTOSPHERE CORE ENGINE                             │
+│                    REMEDION CORE ENGINE                              │
 │                                                                       │
 │  ┌────────────────────────────────────────────────────────────────┐  │
-│  │                   LANGGRAPH STATE MACHINE                       │  │
+│  │                    MASTRA STATE MACHINE                        │  │
 │  │                      (healer/main.py)                           │  │
 │  │                                                                 │  │
 │  │  Nodes: 20+ specialized nodes                                   │  │
 │  │  State: TypedDict with custom reducers                          │  │
 │  │  Checkpointer: MemorySaver (conversation persistence)           │  │
-│  │  Tracing: LangSmith integration                                 │  │
+│  │  Observability: Prometheus metrics + structured logs           │  │
 │  └────────────────────────────────────────────────────────────────┘  │
 │                                                                       │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                │
@@ -404,7 +404,7 @@ def smart_router_node(state: AgentState) -> Dict[str, Any]:
 
 **File:** `healer/main.py`
 
-**Purpose:** Spawn investigation agents in parallel using LangGraph's Send API.
+**Purpose:** Spawn investigation agents in parallel using Mastra's Send API.
 
 ```python
 def route_to_investigation(state: AgentState) -> list[Send] | str:
@@ -598,7 +598,7 @@ def evaluate(self, state: AgentState) -> PolicyResult:
 
 **File:** `healer/state.py`
 
-**Purpose:** Proper state management for parallel agent execution using LangGraph TypedDict with custom reducers.
+**Purpose:** Proper state management for parallel agent execution using Mastra TypedDict with custom reducers.
 
 ```python
 def merge_dicts(left: dict, right: dict) -> dict:
@@ -942,7 +942,7 @@ Discovery: RabbitMQ Prometheus plugin was disabled
 
 ## 1️⃣3️⃣ Conclusion
 
-**AutoSphere demonstrates how agentic AI transforms infrastructure operations:**
+**REMEdion demonstrates how agentic AI transforms infrastructure operations:**
 
 | Achievement | Impact |
 |-------------|--------|
@@ -955,7 +955,7 @@ Discovery: RabbitMQ Prometheus plugin was disabled
 **The system is production-ready with:**
 - ✅ 125/125 tests passing
 - ✅ Strong safety mechanisms (circuit breaker, rollback)
-- ✅ Comprehensive observability (LangSmith)
+- ✅ Comprehensive observability (metrics, logs)
 - ✅ YAML-driven policy configuration
 - ✅ MCP-based tool integration
 
@@ -967,7 +967,7 @@ Discovery: RabbitMQ Prometheus plugin was disabled
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
-| **Orchestration** | LangGraph | 0.2.x | State machine workflow |
+| **Orchestration** | Mastra | 0.2.x | State machine workflow |
 | **LLM** | Ollama/Claude | - | Reasoning |
 | **Vector DB** | Qdrant | 1.x | Similarity search |
 | **Database** | PostgreSQL | 15+ | Audit/Learning |
@@ -976,14 +976,14 @@ Discovery: RabbitMQ Prometheus plugin was disabled
 | **Monitoring** | Prometheus | 2.x | Metrics |
 | **Visualization** | Grafana | 10.x | Dashboards |
 | **Ticketing** | Redmine | 5.x | Incident tracking |
-| **Observability** | LangSmith | - | LLM tracing |
+| **Observability** | Structured Logs | - | Runtime debugging |
 
 ## B. File Structure
 
 ```
-autosphereLangraph/
+remedionMastra/
 ├── healer/
-│   ├── main.py              # LangGraph workflow
+│   ├── main.py              # Mastra workflow
 │   ├── state.py             # TypedDict state
 │   ├── schemas.py           # Pydantic models
 │   ├── config.py            # Routing rules

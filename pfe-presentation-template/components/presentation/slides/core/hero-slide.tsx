@@ -13,7 +13,10 @@ interface HeroSlideProps {
 
 export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
   return (
-    <SlideWrapper className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/20 dark:via-slate-900 dark:to-secondary/20">
+    <SlideWrapper
+      showLogos
+      className="bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/20 dark:via-slate-900 dark:to-secondary/20"
+    >
       <div className="h-full flex flex-col justify-center items-center text-center space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -22,11 +25,11 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
         >
           <Badge variant="secondary" className="px-4 py-1.5 text-sm">
             <CalendarDays className="mr-2 h-4 w-4" />
-            Academic Year: 2024-2025
+            Academic Year: 2025/2026
           </Badge>
         </motion.div>
 
-        {/* AutoSphere Logo */}
+        {/* REMEdion Logo */}
         <motion.div
           className="relative w-32 h-32 mb-2"
           initial={{ opacity: 0, scale: 0.5 }}
@@ -35,7 +38,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
         >
           <Image
             src="/Logo-autoshpere.png"
-            alt="AutoSphere Logo"
+            alt="REMEdion Logo"
             fill
             className="object-contain"
           />
@@ -48,7 +51,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            AutoSphere
+            REMEdion
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground/90"
@@ -74,7 +77,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.0 }}
         >
-          Presented by: <span className="font-bold text-primary">BenKhalifa Mohamed Naceur</span>
+          Presented by: <span className="font-bold text-primary">Youssef Hassine</span>
         </motion.p>
 
         <motion.div
@@ -91,8 +94,8 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Mm Guesmi Latifa</p>
-              <p className="font-semibold">Esprit</p>
+              <p className="text-muted-foreground">Mm Ines Abdeljaoued-Tej</p>
+              <p className="font-semibold">ESSAIT</p>
             </CardContent>
           </Card>
 
@@ -104,7 +107,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Mr. Riadh Rezig</p>
+              <p className="text-muted-foreground"> Mohamed Naceur BenKhalifa</p>
               <p className="font-semibold">Maison du Web</p>
             </CardContent>
           </Card>

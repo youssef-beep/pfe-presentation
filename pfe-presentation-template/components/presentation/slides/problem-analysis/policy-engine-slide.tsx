@@ -53,16 +53,16 @@ function RequestNode(_props: NodeProps) {
   return (
     <div className="relative">
       <div
-        className={`p-4 rounded-xl bg-gradient-to-br from-blue-900/80 to-cyan-900/80 border-2 border-blue-500/50 shadow-lg backdrop-blur-sm transition-all duration-300 min-w-[150px] ${
+        className={`p-3.5 rounded-xl bg-gradient-to-br from-blue-900/80 to-cyan-900/80 border-2 border-blue-500/50 shadow-lg backdrop-blur-sm transition-all duration-300 min-w-[138px] ${
           pulse ? "scale-105" : ""
         }`}
         style={{ boxShadow: pulse ? "0 0 25px rgba(59,130,246,0.5)" : undefined }}
       >
         <div className="flex items-center gap-2 mb-1">
-          <FileText className={`h-6 w-6 text-blue-400 ${pulse ? "animate-pulse" : ""}`} />
-          <span className="font-bold text-base text-white">Request</span>
+          <FileText className={`h-5 w-5 text-blue-400 ${pulse ? "animate-pulse" : ""}`} />
+          <span className="font-bold text-sm text-white">Request</span>
         </div>
-        <p className="text-sm text-blue-300">From Reasoning</p>
+        <p className="text-xs text-blue-300">From Reasoning</p>
         <Badge className="bg-blue-500/30 text-blue-200 text-xs mt-2">action_plan</Badge>
       </div>
       <Handle type="source" position={Position.Right} className="w-3 h-3 !bg-yellow-500" />
@@ -92,14 +92,14 @@ function PolicyEngineNode(_props: NodeProps) {
     <div className="relative">
       <Handle type="target" position={Position.Left} className="w-3 h-3 !bg-yellow-500" />
       <div
-        className="p-5 rounded-2xl bg-gradient-to-br from-yellow-900/80 to-amber-900/80 border-2 border-yellow-500/50 shadow-xl backdrop-blur-sm min-w-[170px]"
+        className="p-4 rounded-2xl bg-gradient-to-br from-yellow-900/80 to-amber-900/80 border-2 border-yellow-500/50 shadow-xl backdrop-blur-sm min-w-[160px]"
         style={{ boxShadow: decision ? "0 0 35px rgba(234,179,8,0.6)" : "0 0 15px rgba(234,179,8,0.3)" }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <Shield className={`h-7 w-7 text-yellow-400 ${checking < checks.length ? "animate-pulse" : ""}`} />
-          <span className="font-bold text-base text-white">POLICY ENGINE</span>
+          <Shield className={`h-6 w-6 text-yellow-400 ${checking < checks.length ? "animate-pulse" : ""}`} />
+          <span className="font-bold text-sm text-white">POLICY ENGINE</span>
         </div>
-        <Badge className="bg-yellow-500/30 text-yellow-200 text-xs mb-3">YAML • RBAC</Badge>
+        <Badge className="bg-yellow-500/30 text-yellow-200 text-xs mb-2">YAML • RBAC</Badge>
         <div className="space-y-1.5">
           {checks.map((check, i) => (
             <div
@@ -140,7 +140,7 @@ function DecisionNode(_props: NodeProps) {
     <div className="relative">
       <Handle type="target" position={Position.Left} className="w-3 h-3 !bg-green-500" />
       <div
-        className={`p-4 rounded-xl border-2 shadow-lg backdrop-blur-sm transition-all duration-300 min-w-[150px] ${
+        className={`p-3.5 rounded-xl border-2 shadow-lg backdrop-blur-sm transition-all duration-300 min-w-[138px] ${
           activeDecision === "auto"
             ? "bg-gradient-to-br from-green-900/80 to-emerald-900/80 border-green-500/50"
             : activeDecision === "human"
@@ -158,13 +158,13 @@ function DecisionNode(_props: NodeProps) {
       >
         <div className="flex items-center gap-2 mb-2">
           {activeDecision === "auto" ? (
-            <CheckCircle className="h-6 w-6 text-green-400 animate-pulse" />
+            <CheckCircle className="h-5 w-5 text-green-400 animate-pulse" />
           ) : activeDecision === "human" ? (
-            <Users className="h-6 w-6 text-yellow-400 animate-pulse" />
+            <Users className="h-5 w-5 text-yellow-400 animate-pulse" />
           ) : (
-            <XCircle className="h-6 w-6 text-red-400 animate-pulse" />
+            <XCircle className="h-5 w-5 text-red-400 animate-pulse" />
           )}
-          <span className="font-bold text-base text-white">Decision</span>
+          <span className="font-bold text-sm text-white">Decision</span>
         </div>
         <div className="flex gap-1.5">
           {[
@@ -212,7 +212,7 @@ function CircuitBreakerNode(_props: NodeProps) {
     <div className="relative">
       <Handle type="target" position={Position.Left} className="w-3 h-3 !bg-orange-500" />
       <div
-        className={`p-4 rounded-xl border-2 shadow-lg backdrop-blur-sm transition-all duration-300 ${
+        className={`p-3.5 rounded-xl border-2 shadow-lg backdrop-blur-sm transition-all duration-300 ${
           state === "closed"
             ? "bg-gradient-to-br from-green-900/80 to-emerald-900/80 border-green-500/50"
             : state === "open"
@@ -229,8 +229,8 @@ function CircuitBreakerNode(_props: NodeProps) {
         }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <Zap className={`h-6 w-6 ${state === "closed" ? "text-green-400" : state === "open" ? "text-red-400" : "text-yellow-400"}`} />
-          <span className="font-bold text-base text-white">Circuit Breaker</span>
+          <Zap className={`h-5 w-5 ${state === "closed" ? "text-green-400" : state === "open" ? "text-red-400" : "text-yellow-400"}`} />
+          <span className="font-bold text-sm text-white">Circuit Breaker</span>
         </div>
         <div className="flex gap-1.5">
           {[
@@ -254,7 +254,7 @@ function CircuitBreakerNode(_props: NodeProps) {
             </Badge>
           ))}
         </div>
-        <p className="text-xs text-slate-400 mt-2">3 fails / 30min</p>
+        <p className="text-[11px] text-slate-400 mt-1.5">3 fails / 30min</p>
       </div>
       <Handle type="source" position={Position.Right} className="w-3 h-3 !bg-yellow-500" />
     </div>
@@ -277,16 +277,16 @@ function ExecutorNode(_props: NodeProps) {
     <div className={`relative transition-all duration-300 ${running ? "scale-105" : "scale-100"}`}>
       <Handle type="target" position={Position.Left} className="w-3 h-3 !bg-purple-500" />
       <div
-        className={`p-4 rounded-xl bg-gradient-to-br from-purple-900/80 to-indigo-900/80 border-2 border-purple-500/50 shadow-lg backdrop-blur-sm ${
+        className={`p-3.5 rounded-xl bg-gradient-to-br from-purple-900/80 to-indigo-900/80 border-2 border-purple-500/50 shadow-lg backdrop-blur-sm ${
           running ? "ring-4 ring-offset-2 ring-purple-500/30" : ""
         }`}
         style={{ boxShadow: running ? "0 0 30px rgba(168,85,247,0.6)" : undefined }}
       >
         <div className="flex items-center gap-2 mb-1">
-          <Play className={`h-6 w-6 text-purple-400 ${running ? "animate-pulse" : ""}`} />
-          <span className="font-bold text-base text-white">Executor</span>
+          <Play className={`h-5 w-5 text-purple-400 ${running ? "animate-pulse" : ""}`} />
+          <span className="font-bold text-sm text-white">Executor</span>
         </div>
-        <p className="text-sm text-purple-300">AWX Playbooks</p>
+        <p className="text-xs text-purple-300">AWX Playbooks</p>
         <Badge className="bg-purple-500/30 text-purple-200 text-xs mt-2">safe execution</Badge>
       </div>
     </div>
@@ -309,16 +309,16 @@ function AuditNode(_props: NodeProps) {
     <div className="relative">
       <Handle type="target" position={Position.Left} className="w-3 h-3 !bg-slate-500" />
       <div
-        className={`p-4 rounded-xl bg-gradient-to-br from-slate-800/80 to-gray-900/80 border-2 border-slate-500/50 shadow-lg backdrop-blur-sm transition-all duration-300 ${
+        className={`p-3.5 rounded-xl bg-gradient-to-br from-slate-800/80 to-gray-900/80 border-2 border-slate-500/50 shadow-lg backdrop-blur-sm transition-all duration-300 ${
           logging ? "scale-105" : ""
         }`}
         style={{ boxShadow: logging ? "0 0 20px rgba(100,116,139,0.5)" : undefined }}
       >
         <div className="flex items-center gap-2 mb-1">
-          <Lock className={`h-6 w-6 text-slate-400 ${logging ? "animate-pulse" : ""}`} />
-          <span className="font-bold text-base text-white">Audit Log</span>
+          <Lock className={`h-5 w-5 text-slate-400 ${logging ? "animate-pulse" : ""}`} />
+          <span className="font-bold text-sm text-white">Audit Log</span>
         </div>
-        <p className="text-sm text-slate-400">PostgreSQL</p>
+        <p className="text-xs text-slate-400">PostgreSQL</p>
         <Badge className="bg-slate-500/30 text-slate-300 text-xs mt-2">immutable</Badge>
       </div>
     </div>
@@ -335,12 +335,12 @@ const nodeTypes = {
 }
 
 const initialNodes: Node[] = [
-  { id: "request", type: "request", position: { x: 0, y: 100 }, data: {} },
-  { id: "policy", type: "policyEngine", position: { x: 200, y: 70 }, data: {} },
-  { id: "decision", type: "decision", position: { x: 440, y: 100 }, data: {} },
-  { id: "executor", type: "executor", position: { x: 650, y: 100 }, data: {} },
-  { id: "circuit", type: "circuitBreaker", position: { x: 200, y: 280 }, data: {} },
-  { id: "audit", type: "audit", position: { x: 650, y: 280 }, data: {} },
+  { id: "request", type: "request", position: { x: 0, y: 84 }, data: {} },
+  { id: "policy", type: "policyEngine", position: { x: 185, y: 56 }, data: {} },
+  { id: "decision", type: "decision", position: { x: 410, y: 84 }, data: {} },
+  { id: "executor", type: "executor", position: { x: 600, y: 84 }, data: {} },
+  { id: "circuit", type: "circuitBreaker", position: { x: 185, y: 225 }, data: {} },
+  { id: "audit", type: "audit", position: { x: 600, y: 225 }, data: {} },
 ]
 
 const initialEdges: Edge[] = [
@@ -495,15 +495,16 @@ export default function PolicyEngineSlide() {
 
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
+      <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
-          badge="6 • Architecture"
+          badge="6 - Architecture"
           title="Policy Engine: YAML-Driven RBAC"
           subtitle="Confidence check → Circuit breaker → Execute or Reject"
+          className="mb-3 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
 
-        <div className="flex-1 grid grid-cols-4 gap-4">
-          <div className="col-span-3 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+        <div className="flex-1 min-h-0 grid grid-cols-4 gap-3">
+          <div className="col-span-3 min-h-0 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -513,22 +514,23 @@ export default function PolicyEngineSlide() {
               nodesDraggable={!isLocked}
               nodesConnectable={false}
               fitView
+              fitViewOptions={{ padding: 0.08 }}
               minZoom={0.5}
               maxZoom={1.5}
-              defaultViewport={{ x: 40, y: 40, zoom: 0.8 }}
+              defaultViewport={{ x: 28, y: 24, zoom: 0.84 }}
             >
               <Background color="#94a3b8" gap={30} size={1} />
               <Controls showInteractive={false} />
-              <div className="absolute top-3 right-3 flex gap-2 z-50">
-                <Button size="sm" variant="outline" onClick={() => setIsFullscreen(true)} className="h-9 px-3 gap-1.5 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
+              <div className="absolute top-2.5 right-2.5 flex gap-1.5 z-50">
+                <Button size="sm" variant="outline" onClick={() => setIsFullscreen(true)} className="h-8 px-2.5 gap-1 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
                   <Maximize2 className="h-4 w-4" />
                   Fullscreen
                 </Button>
-                <Button size="sm" onClick={toggleLock} className={`h-9 px-3 gap-1.5 text-xs font-medium shadow-md ${isLocked ? "bg-green-600 hover:bg-green-700 text-white" : "bg-white hover:bg-gray-100 text-gray-700 border border-gray-300"}`}>
+                <Button size="sm" onClick={toggleLock} className={`h-8 px-2.5 gap-1 text-xs font-medium shadow-md ${isLocked ? "bg-green-600 hover:bg-green-700 text-white" : "bg-white hover:bg-gray-100 text-gray-700 border border-gray-300"}`}>
                   {isLocked ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                   {isLocked ? "Locked" : "Drag to arrange"}
                 </Button>
-                <Button size="sm" variant="outline" onClick={resetPositions} className="h-9 px-3 gap-1.5 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
+                <Button size="sm" variant="outline" onClick={resetPositions} className="h-8 px-2.5 gap-1 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
                   <RotateCcw className="h-4 w-4" />
                   Reset
                 </Button>
@@ -536,11 +538,11 @@ export default function PolicyEngineSlide() {
             </ReactFlow>
           </div>
 
-          <div className="space-y-4">
+          <div className="min-h-0 space-y-3">
             <Card className="shadow-lg">
-              <CardContent className="p-4">
-                <h3 className="font-bold text-base mb-3 flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-yellow-500" />
+              <CardContent className="p-3">
+                <h3 className="font-bold text-sm mb-2 flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-yellow-500" />
                   Policy Decisions
                 </h3>
                 <div className="space-y-2">
@@ -549,8 +551,8 @@ export default function PolicyEngineSlide() {
                     { decision: "REQUIRE_HUMAN", desc: "risk = high", color: "yellow", icon: Users },
                     { decision: "REJECT", desc: "policy violation", color: "red", icon: XCircle },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 p-2 bg-muted/50 rounded-lg">
-                      <item.icon className={`h-5 w-5 text-${item.color}-500`} />
+                    <div key={i} className="flex items-center gap-2.5 p-1.5 bg-muted/50 rounded-lg">
+                      <item.icon className={`h-4 w-4 text-${item.color}-500`} />
                       <div className="flex-1">
                         <span className={`text-sm font-bold text-${item.color}-500`}>{item.decision}</span>
                         <p className="text-xs text-muted-foreground">{item.desc}</p>
@@ -562,12 +564,12 @@ export default function PolicyEngineSlide() {
             </Card>
 
             <Card className="shadow-lg border-2 border-orange-500/30">
-              <CardContent className="p-4">
-                <h4 className="font-bold text-sm mb-3 flex items-center gap-2 text-orange-600">
-                  <Zap className="h-5 w-5" />
+              <CardContent className="p-3">
+                <h4 className="font-bold text-sm mb-2 flex items-center gap-2 text-orange-600">
+                  <Zap className="h-4 w-4" />
                   Circuit Breaker
                 </h4>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-1.5 text-xs">
                   {[
                     { label: "Threshold", value: "3 failures" },
                     { label: "Window", value: "30 min" },
@@ -583,14 +585,14 @@ export default function PolicyEngineSlide() {
             </Card>
 
             <Card className="shadow-lg bg-gradient-to-br from-primary/5 to-secondary/5">
-              <CardContent className="p-4">
-                <div className="grid grid-cols-2 gap-3 text-center">
+              <CardContent className="p-3">
+                <div className="grid grid-cols-2 gap-2 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-green-500">3</div>
+                    <div className="text-xl font-bold text-green-500">3</div>
                     <div className="text-xs text-muted-foreground">Decisions</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-orange-500">3</div>
+                    <div className="text-xl font-bold text-orange-500">3</div>
                     <div className="text-xs text-muted-foreground">CB States</div>
                   </div>
                 </div>

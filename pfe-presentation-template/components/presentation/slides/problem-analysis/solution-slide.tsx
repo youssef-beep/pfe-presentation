@@ -23,7 +23,7 @@ export default function SolutionSlide() {
   return (
     <SlideWrapper>
       <div className="h-full flex flex-col">
-        <SlideHeader badge="3 • Proposed Solution" title="AutoSphere" subtitle="Intelligent Self-Healing System based on Agentic AI" />
+        <SlideHeader badge="3 • Proposed Solution" title="REMEdion" subtitle="Intelligent Self-Healing System based on Agentic AI" />
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 space-y-3">
             <div className="flex items-center space-x-2 mb-2">
@@ -88,7 +88,7 @@ export default function SolutionSlide() {
             <Card className="shadow-lg border-2 border-primary/20">
               <CardContent className="p-3">
                 <h4 className="font-semibold text-primary mb-2 flex items-center text-sm"><Lightbulb className="h-4 w-4 mr-2" />Key Innovation</h4>
-                <p className="text-xs text-muted-foreground">Using <span className="font-semibold text-primary">LangGraph</span> to orchestrate specialized AI agents with a dynamic <span className="font-semibold">Orchestrator-Worker</span> pattern.</p>
+                <p className="text-xs text-muted-foreground">Using <span className="font-semibold text-primary">Mastra</span> to orchestrate specialized AI agents with a dynamic <span className="font-semibold">Orchestrator-Worker</span> pattern.</p>
               </CardContent>
             </Card>
           </div>

@@ -596,8 +596,8 @@ export default function LogicalArchitectureSlide() {
       <div className="fixed inset-0 z-[9999] bg-white">
         <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-white to-transparent">
           <div>
-            <h2 className="text-xl font-bold text-slate-800">Logical Architecture</h2>
-            <p className="text-sm text-slate-500">LangGraph workflow with 20+ specialized nodes</p>
+            <h2 className="text-xl font-bold text-slate-800">Core Workflow Architecture</h2>
+            <p className="text-sm text-slate-500">Mastra orchestration workflow for incident handling</p>
           </div>
           <Button
             variant="outline"
@@ -648,16 +648,17 @@ export default function LogicalArchitectureSlide() {
 
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
+      <div className="h-full min-h-0 flex flex-col">
         <SlideHeader 
-          badge="6 • Architecture" 
-          title="Logical Architecture" 
-          subtitle="LangGraph workflow with 20+ specialized nodes" 
+          badge="6 - Architecture" 
+          title="Core Workflow Architecture" 
+          subtitle="Mastra orchestration workflow for incident handling"
+          className="mb-3 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
         
-        <div className="flex-1 flex gap-3">
+        <div className="flex-1 min-h-0 flex gap-2.5">
           {/* Main Flow Diagram */}
-          <div className="flex-1 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900/20">
+          <div className="flex-1 min-h-0 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900/20">
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -733,11 +734,11 @@ export default function LogicalArchitectureSlide() {
           </div>
 
           {/* Legend Sidebar */}
-          <Card className="w-56 shadow-lg flex-shrink-0">
+          <Card className="w-56 min-h-0 shadow-lg flex-shrink-0">
             <CardContent className="p-2.5 space-y-2">
               <div>
                 <h4 className="font-bold text-xs mb-1.5 flex items-center gap-1">
-                  🔀 LangGraph Patterns
+                  🔀 Mastra Patterns
                 </h4>
                 <div className="space-y-1 text-[10px]">
                   <div className="flex items-center gap-1.5 p-1 bg-purple-50 dark:bg-purple-900/20 rounded">

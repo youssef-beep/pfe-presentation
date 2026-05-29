@@ -70,7 +70,7 @@ export default function ParallelAgentsSlide() {
           {/* Code Example */}
           <Card className="shadow-lg">
             <CardHeader className="pb-2">
-              <CardTitle className="text-xl">LangGraph Send() API Usage</CardTitle>
+              <CardTitle className="text-xl">Mastra Send() API Usage</CardTitle>
             </CardHeader>
             <CardContent>
               <pre className="text-sm bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto">
@@ -84,7 +84,7 @@ export default function ParallelAgentsSlide() {
     # Create Send() for each agent - PARALLEL EXECUTION
     return [Send(agent_name, state) for agent_name in agents_to_spawn]
 
-# LangGraph handles parallel execution automatically
+# Mastra handles parallel execution automatically
 workflow.add_conditional_edges(
     "smart_router",
     route_to_investigation,

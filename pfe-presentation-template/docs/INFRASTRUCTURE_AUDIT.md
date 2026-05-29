@@ -1,6 +1,6 @@
 # Infrastructure Audit Report
 **Date:** November 30, 2024  
-**Project:** AutoSphere PFE Presentation  
+**Project:** REMEdion PFE Presentation  
 **Auditor:** Infrastructure Review  
 
 ---
@@ -328,7 +328,7 @@ OpenStack Cloud (Nova, Neutron, Cinder, RabbitMQ)
     └──────────┬──────────┘
                ↓
     ┌─────────────────────┐
-    │   AutoSphere Agent  │ ← LangGraph workflow
+    │   REMEdion Agent   │ ← Mastra workflow
     └──────────┬──────────┘
                ↓
     ┌─────────────────────┐
@@ -386,7 +386,7 @@ const deploymentTools = [
 
 2. **Grafana Dashboards**
    - OpenStack metrics dashboard
-   - AutoSphere performance dashboard
+   - REMEdion performance dashboard
    - Shows working monitoring
 
 3. **AWX Job Execution**

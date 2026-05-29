@@ -378,7 +378,7 @@ export default function LangGraphWorkflowSlide() {
 
         {/* Title */}
         <div className="absolute top-4 left-4 z-50">
-          <h2 className="text-xl font-bold text-white">LangGraph State Machine</h2>
+          <h2 className="text-xl font-bold text-white">Mastra State Machine</h2>
           <p className="text-sm text-slate-400">Complete workflow — 20+ nodes with parallel agents</p>
         </div>
 
@@ -395,8 +395,8 @@ export default function LangGraphWorkflowSlide() {
       <div className="h-full flex flex-col">
         <SlideHeader
           badge="6 • Architecture"
-          title="LangGraph State Machine"
-          subtitle="Complete workflow from LangSmith — 20+ nodes with parallel agents"
+          title="Mastra State Machine"
+          subtitle="Complete workflow — 20+ nodes with parallel agents"
         />
 
         <div className="flex-1 grid grid-cols-4 gap-3">

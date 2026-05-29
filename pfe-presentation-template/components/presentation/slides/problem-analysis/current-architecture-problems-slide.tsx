@@ -7,41 +7,45 @@ import { XCircle, Unlink, Clock, TrendingDown, Building2, Users, UserCheck, Aler
 const problems = [
   {
     icon: Unlink,
-    title: "No Correlation",
-    desc: "Logs, metrics, traces exist in isolation — no unified correlation",
+    title: "Siloed Monitoring",
+    desc: "Logs, metrics, and traces exist in separate tools, making correlation difficult.",
     color: "from-red-500 to-red-600",
     bg: "bg-red-50",
-    num: "01"
+    num: "01",
   },
   {
     icon: Clock,
     title: "Manual Response",
-    desc: "Every incident requires human investigation & manual execution",
+    desc: "Each incident requires manual investigation, diagnosis, and execution.",
     color: "from-orange-500 to-orange-600",
     bg: "bg-orange-50",
-    num: "02"
+    num: "02",
   },
   {
     icon: TrendingDown,
     title: "Reactive Operations",
-    desc: "Constant firefighting — no learning, no prediction, no optimization",
+    desc: "Teams mainly react after failures occur, with limited prediction and learning.",
     color: "from-amber-500 to-amber-600",
     bg: "bg-amber-50",
-    num: "03"
+    num: "03",
   },
 ]
 
 const impacts = [
-  { icon: Building2, label: "Enterprise", color: "bg-red-500", items: ["Operational costs ↑", "Downtime risk", "Tech debt"] },
-  { icon: Users, label: "SRE Team", color: "bg-orange-500", items: ["Alert fatigue", "No innovation time", "Manual work"] },
-  { icon: UserCheck, label: "Clients", color: "bg-amber-500", items: ["Service disruptions", "SLA breaches", "Poor UX"] },
+  { icon: Building2, label: "Enterprise", color: "bg-red-500", items: ["Operational costs increase", "Downtime risk", "Technical debt"] },
+  { icon: Users, label: "SRE Team", color: "bg-orange-500", items: ["Alert fatigue", "Reduced innovation time", "Repetitive manual work"] },
+  { icon: UserCheck, label: "Client", color: "bg-amber-500", items: ["Service disruptions", "SLA breaches", "Poor user experience"] },
 ]
 
 export default function CurrentArchitectureProblemsSlide() {
   return (
     <SlideWrapper>
       <div className="h-full flex flex-col">
-        <SlideHeader badge="2 • General Context" title="Problematic" subtitle="Current challenges impacting enterprise, team, and clients" />
+        <SlideHeader
+          badge="2 • General Context"
+          title="Problem Statement"
+          subtitle="Current challenges affecting operations, teams, and end users"
+        />
 
         <div className="flex-1 flex flex-col gap-4">
           {/* Header */}

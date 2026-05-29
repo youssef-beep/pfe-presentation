@@ -42,7 +42,7 @@ export default function TargetArchitectureSlide() {
                              │ Webhook
                              ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│                              AUTOSPHERE CORE                                     │
+│                              REMEDION CORE                                      │
 │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────────────────────────────────┐ │
 │  │ INGEST  │─▶│  DEDUP  │─▶│ ROUTER  │─▶│         INVESTIGATION               │ │
 │  │         │  │ (Redis) │  │ (Smart) │  │  ┌─────────┬─────────┬─────────┐    │ │
@@ -83,7 +83,7 @@ export default function TargetArchitectureSlide() {
                   <p className="text-xs text-muted-foreground mt-1">Data sources</p>
                 </div>
                 <div className="p-2 rounded bg-purple-500/10">
-                  <Badge variant="secondary" className="text-xs">AutoSphere</Badge>
+                  <Badge variant="secondary" className="text-xs">REMEdion</Badge>
                   <p className="text-xs text-muted-foreground mt-1">AI processing</p>
                 </div>
                 <div className="p-2 rounded bg-green-500/10">

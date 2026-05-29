@@ -53,7 +53,7 @@ const productionReadiness = [
   { item: "3 MCP Servers", icon: Server },
   { item: "YAML Policy Engine", icon: Shield },
   { item: "Circuit Breaker Pattern", icon: Zap },
-  { item: "LangSmith Observability", icon: Brain },
+  { item: "Expanded Observability", icon: Brain },
 ]
 
 export default function FutureRoadmapSlide() {
@@ -150,7 +150,7 @@ export default function FutureRoadmapSlide() {
             <Card className="shadow-lg border-2 border-primary/20">
               <CardContent className="p-6">
                 <h4 className="font-bold text-center text-2xl text-primary mb-6">
-                  AutoSphere: Transforming SRE Operations
+                  REMEdion: Transforming SRE Operations
                 </h4>
                 <div className="grid grid-cols-4 gap-6 text-center">
                   <div>

@@ -54,7 +54,7 @@ const challenges = [
 ]
 
 const keyLearnings = [
-  { icon: Lightbulb, text: "LangGraph excels at complex multi-agent orchestration" },
+  { icon: Lightbulb, text: "Mastra excels at complex multi-agent orchestration" },
   { icon: Zap, text: "Rule-based routing is faster than LLM classification" },
   { icon: Server, text: "Self-diagnosing agents are essential for production" },
   { icon: Code, text: "YAML-driven policies enable flexible governance" },

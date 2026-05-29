@@ -25,7 +25,7 @@ export default function ThankYouSlide() {
               Project Summary
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="font-bold text-primary">AutoSphere</span> is an AI-driven self-healing automation system
+              <span className="font-bold text-primary">REMEdion</span> is an AI-driven self-healing automation system
               that reduces manual SRE work by <span className="text-green-500 font-bold">85%</span>,
               MTTR by <span className="text-green-500 font-bold">93%</span>,
               and alert volume by <span className="text-green-500 font-bold">70%</span> through
@@ -36,7 +36,7 @@ export default function ThankYouSlide() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <Badge variant="secondary" className="text-base px-5 py-2.5">
-            LangGraph
+            Mastra
           </Badge>
           <Badge variant="secondary" className="text-base px-5 py-2.5">
             Multi-Agent AI
@@ -53,9 +53,8 @@ export default function ThankYouSlide() {
         </div>
 
         <div className="text-lg text-muted-foreground mt-6">
-          <p className="font-bold text-xl">Benkhalifa Mohamed Naceur</p>
-          <p className="mt-1">Maison du Web - Cloud & DevOps Division</p>
-          <p className="mt-2 text-base">Academic Year 2024-2025</p>
+          <p className="font-bold text-xl">Youssef Hassine</p>
+          <p className="mt-2 text-base">Academic Year 2025-2026</p>
         </div>
       </div>
     </SlideWrapper>

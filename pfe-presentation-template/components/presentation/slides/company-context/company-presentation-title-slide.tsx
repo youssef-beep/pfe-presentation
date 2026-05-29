@@ -138,9 +138,9 @@ export default function CompanyPresentationTitleSlide() {
                 borderColor: 'rgba(43, 73, 153, 0.2)'
               }}
             >
-              <div className="text-xl font-medium" style={{ color: MDW_BLUE }}>MDW Engineering</div>
+              <div className="text-xl font-medium" style={{ color: MDW_BLUE }}>REMEdion</div>
               <div className="w-px h-6" style={{ backgroundColor: 'rgba(43, 73, 153, 0.3)' }} />
-              <div className="text-lg text-muted-foreground">Digital Transformation Partner</div>
+              <div className="text-lg text-muted-foreground">General Context</div>
             </div>
           </motion.div>
         </div>

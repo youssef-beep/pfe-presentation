@@ -3,109 +3,207 @@ import SlideWrapper from "../../slide-wrapper"
 import SlideHeader from "../../slide-header"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Inbox, ListTodo, Play, Eye, CheckCircle2, AlertOctagon,
-  Brain, Server, Plug, FlaskConical, Shield, Activity
+import {
+  Brain,
+  Route,
+  Plug,
+  ClipboardCheck,
+  KanbanSquare,
+  CheckCircle2,
+  Shield,
+  FileText,
+  ArrowRight,
 } from "lucide-react"
 
-// ============================================
-// AUTOSPHERE KANBAN - ULTRA COMPACT VIEW
-// ============================================
-
-const columns = [
-  { id: "backlog", title: "Backlog", icon: Inbox, count: 8, color: "bg-slate-100 text-slate-700 border-slate-300" },
-  { id: "todo", title: "To Do", icon: ListTodo, count: 5, color: "bg-blue-100 text-blue-700 border-blue-300" },
-  { id: "progress", title: "In Progress", icon: Play, count: 3, color: "bg-yellow-100 text-yellow-700 border-yellow-400 ring-2 ring-yellow-400" },
-  { id: "review", title: "Review", icon: Eye, count: 3, color: "bg-purple-100 text-purple-700 border-purple-300" },
-  { id: "done", title: "Done", icon: CheckCircle2, count: 31, color: "bg-green-100 text-green-700 border-green-400" },
+const months = [
+  {
+    month: "Month 1",
+    phase: "Analysis & Architecture",
+    short: "Analysis",
+    icon: Brain,
+    accent: "bg-blue-100 text-blue-700 border-blue-200",
+    panel: "bg-blue-50/70",
+    items: [
+      "Requirements analysis",
+      "System scoping",
+      "Use cases",
+      "Workflow architecture",
+      "Initial Mastra setup",
+    ],
+  },
+  {
+    month: "Month 2",
+    phase: "Core Workflow",
+    short: "Core Workflow",
+    icon: Route,
+    accent: "bg-amber-100 text-amber-700 border-amber-200",
+    panel: "bg-amber-50/70",
+    items: [
+      "Alert ingestion",
+      "Normalization and correlation",
+      "Deduplication",
+      "Smart router",
+      "Reasoning-support flow",
+    ],
+  },
+  {
+    month: "Month 3",
+    phase: "Integration & Control",
+    short: "Integration & Control",
+    icon: Plug,
+    accent: "bg-violet-100 text-violet-700 border-violet-200",
+    panel: "bg-violet-50/70",
+    items: [
+      "Grafana MCP integration",
+      "Qdrant retrieval",
+      "Runbook matching",
+      "Policy engine",
+      "Execution supervision",
+      "Validation and rollback",
+    ],
+  },
+  {
+    month: "Month 4",
+    phase: "Validation & Documentation",
+    short: "Validation",
+    icon: ClipboardCheck,
+    accent: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    panel: "bg-emerald-50/70",
+    items: [
+      "Unit and integration testing",
+      "End-to-end workflow validation",
+      "Reporting and traceability checks",
+      "Documentation",
+      "Final review and defense preparation",
+    ],
+  },
 ]
 
-const completedHighlights = [
-  { icon: Brain, label: "LangGraph Core", epic: "Core" },
-  { icon: Plug, label: "Grafana MCP", epic: "MCP" },
-  { icon: Plug, label: "AWX MCP", epic: "MCP" },
-  { icon: Plug, label: "Redmine MCP", epic: "MCP" },
-  { icon: FlaskConical, label: "Random Forest ML", epic: "ML" },
-  { icon: Activity, label: "Jaeger Tracing", epic: "Obs" },
-  { icon: Activity, label: "Mimir Storage", epic: "Obs" },
-  { icon: Activity, label: "OpenSearch Logs", epic: "Obs" },
-  { icon: Shield, label: "Wazuh SIEM", epic: "Security" },
-  { icon: Server, label: "K8s Deployment", epic: "Infra" },
+const methodologyPoints = [
+  "Visual task flow",
+  "Progressive prioritization",
+  "Continuous adaptation",
+  "Incremental validation",
+  "Documentation and traceability",
+]
+
+const qaPoints = [
+  { icon: CheckCircle2, label: "Component validation" },
+  { icon: Shield, label: "Integration checks" },
+  { icon: ClipboardCheck, label: "Workflow consistency" },
+  { icon: FileText, label: "Documentation traceability" },
 ]
 
 export default function GanttChartSlide() {
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
-        <SlideHeader 
-          badge="5 • Project Planning" 
-          title="AutoSphere 6-Month Kanban" 
-          subtitle="M1-M2 Complete • M3 Active • M4-M6 Planned" 
+      <div className="h-full min-h-0 flex flex-col">
+        <SlideHeader
+          badge="5 - Project Planning"
+          title="REMEdion 4-Month Agile/Kanban Methodology"
+          subtitle="Iterative task flow from foundation to validation"
+          className="mb-4 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
-        
-        <div className="flex-1 flex flex-col gap-6">
-          {/* Kanban Columns - Just Headers */}
-          <div className="grid grid-cols-5 gap-4">
-            {columns.map((column) => (
-              <div 
-                key={column.id} 
-                className={`rounded-2xl p-5 border-2 ${column.color} flex items-center justify-between`}
-              >
-                <div className="flex items-center gap-3">
-                  <column.icon className="h-8 w-8" />
-                  <span className="font-bold text-2xl">{column.title}</span>
+
+        <div className="flex-1 min-h-0 grid grid-cols-12 gap-3">
+          <div className="col-span-8 flex flex-col gap-3">
+            <Card className="shadow-md">
+              <CardContent className="p-3">
+                <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-2">
+                  {months.map((month, index) => (
+                    <div key={month.month} className="contents">
+                      <div className={`rounded-xl border px-3 py-2 ${month.accent}`}>
+                        <div className="text-[10px] font-semibold uppercase tracking-wide opacity-80">{month.month}</div>
+                        <div className="text-sm font-bold leading-tight">{month.short}</div>
+                      </div>
+                      {index < months.length - 1 && <ArrowRight className="h-4 w-4 text-muted-foreground" />}
+                    </div>
+                  ))}
                 </div>
-                <span className="text-4xl font-bold">{column.count}</span>
-              </div>
-            ))}
+              </CardContent>
+            </Card>
+
+            <div className="grid grid-cols-2 gap-3">
+              {months.map((month) => (
+                <Card key={month.month} className="shadow-md">
+                  <CardContent className="p-3.5">
+                    <div className="flex items-start justify-between gap-3 mb-2.5">
+                      <div>
+                        <Badge className={`mb-2 border ${month.accent}`}>{month.month}</Badge>
+                        <h3 className="text-lg font-bold leading-tight xl:text-xl">{month.phase}</h3>
+                      </div>
+                      <div className={`rounded-xl border p-2.5 ${month.accent}`}>
+                        <month.icon className="h-5 w-5" />
+                      </div>
+                    </div>
+
+                    <div className={`rounded-xl border p-3 ${month.accent} ${month.panel}`}>
+                      <div className="space-y-1.5">
+                        {month.items.map((item) => (
+                          <div
+                            key={item}
+                            className="flex items-start gap-2.5 rounded-md bg-white/75 px-2.5 py-1.5 dark:bg-slate-900/40"
+                          >
+                            <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-current opacity-70" />
+                            <p className="text-sm font-medium leading-snug">{item}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-          
-          {/* Completed Highlights */}
-          <Card className="flex-1">
-            <CardContent className="p-6 h-full">
-              <h3 className="text-2xl font-bold mb-4 text-green-700">✓ Key Deliverables Completed (M1-M2)</h3>
-              <div className="grid grid-cols-5 gap-4">
-                {completedHighlights.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-                    <item.icon className="h-7 w-7 text-green-600 flex-shrink-0" />
-                    <span className="font-semibold text-lg">{item.label}</span>
+
+          <div className="col-span-4 flex flex-col gap-3">
+            <Card className="shadow-md">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="rounded-xl bg-primary/10 p-2">
+                    <KanbanSquare className="h-5 w-5 text-primary" />
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* Bottom Stats */}
-          <Card>
-            <CardContent className="p-5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-10">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-green-600">31</div>
-                    <div className="text-xl text-muted-foreground">Done</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-yellow-600">6</div>
-                    <div className="text-xl text-muted-foreground">Active</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-600">13</div>
-                    <div className="text-xl text-muted-foreground">Planned</div>
+                  <div>
+                    <h3 className="text-lg font-bold leading-tight">Agile/Kanban Approach</h3>
+                    <p className="text-sm text-muted-foreground">Iterative delivery guided by visual progress</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-6">
-                  <div className="text-right">
-                    <div className="text-5xl font-bold text-green-600">61%</div>
-                    <div className="text-xl text-muted-foreground">Complete</div>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {methodologyPoints.map((point) => (
+                    <Badge key={point} variant="secondary" className="px-2.5 py-1 text-xs font-medium">
+                      {point}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-md">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="rounded-xl bg-emerald-100 p-2 text-emerald-700">
+                    <ClipboardCheck className="h-5 w-5" />
                   </div>
-                  <div className="w-56 h-8 bg-muted rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full" style={{ width: '61%' }} />
+                  <div>
+                    <h3 className="text-lg font-bold leading-tight">Quality Assurance</h3>
+                    <p className="text-sm text-muted-foreground">Checks carried throughout implementation</p>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {qaPoints.map((point) => (
+                    <div key={point.label} className="rounded-xl border bg-emerald-50/70 px-3 py-3">
+                      <div className="flex items-start gap-2">
+                        <point.icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-700" />
+                        <span className="text-sm font-semibold leading-snug text-emerald-900">{point.label}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </SlideWrapper>

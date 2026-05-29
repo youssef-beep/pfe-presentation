@@ -9,13 +9,13 @@ interface NavigationSlideProps {
 }
 
 const sections = [
-  { title: "Introduction", icon: BookOpen, time: "2 min", targetSlide: 2, description: "Context & company", slides: "2-4" },
-  { title: "General Context", icon: Building, time: "1 min", targetSlide: 5, description: "Problematic", slides: "5-6" },
-  { title: "Proposed Solution", icon: Lightbulb, time: "2 min", targetSlide: 7, description: "AutoSphere overview", slides: "7" },
-  { title: "Specifications", icon: ClipboardList, time: "2 min", targetSlide: 8, description: "Requirements & tech", slides: "8-9" },
-  { title: "Project Planning", icon: Calendar, time: "1 min", targetSlide: 10, description: "Gantt & milestones", slides: "10-11" },
-  { title: "Architecture", icon: Network, time: "6 min", targetSlide: 12, description: "LangGraph, MCP, Policy", slides: "12-21" },
-  { title: "Implementation", icon: Code, time: "8 min", targetSlide: 24, description: "Results & testing", slides: "24-29" },
+  { title: "Introduction", icon: BookOpen, targetSlide: 2, description: "Context & project overview", slides: "2-4" },
+  { title: "General Context", icon: Building, targetSlide: 5, description: "Host organization & problem statement", slides: "5-6" },
+  { title: "Proposed Solution", icon: Lightbulb, targetSlide: 7, description: "REMEdion overview & value proposition", slides: "7" },
+  { title: "Objectives & Scope", icon: ClipboardList, targetSlide: 8, description: "Requirements and system scope", slides: "8-9" },
+  { title: "Project Planning", icon: Calendar, targetSlide: 10, description: "Kanban & milestones", slides: "10-11" },
+  { title: "Architecture", icon: Network, targetSlide: 12, description: "Mastra workflow, agents, policy, MCP", slides: "12-21" },
+  { title: "Implementation", icon: Code, targetSlide: 24, description: "Demo, results & validation", slides: "24-29" },
 ]
 
 export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
@@ -25,7 +25,7 @@ export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
         <div className="text-center space-y-2">
           <Brain className="h-16 w-16 text-primary mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold text-primary">Presentation Outline</h1>
-          <p className="text-xl text-muted-foreground">AutoSphere: Intelligent Self-Healing System</p>
+          <p className="text-xl text-muted-foreground">REMEdion: AI-Driven Self-Healing Infrastructure</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full flex-1 content-center">
@@ -36,9 +36,8 @@ export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
               onClick={() => onNavigate(section.targetSlide)}
             >
               <CardHeader className="flex flex-col items-center text-center pb-2 space-y-2 flex-1 justify-center px-4 pt-4">
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-start w-full">
                   <Badge variant="secondary" className="text-2xl px-4 py-2 font-bold">{index + 1}</Badge>
-                  <Badge variant="outline" className="text-xl px-3 py-1.5 font-semibold">{section.time}</Badge>
                 </div>
                 <div className="p-5 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                   <section.icon className="h-12 w-12 text-primary group-hover:text-secondary transition-colors" />

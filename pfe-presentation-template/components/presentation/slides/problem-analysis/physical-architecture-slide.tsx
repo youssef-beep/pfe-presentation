@@ -142,8 +142,8 @@ const nodeTypes = {
 const initialNodes: Node[] = [
   // Monitoring Layer
   { id: "monitoring", type: "infraLayer", position: { x: 0, y: 0 }, data: { label: "Monitoring", icon: "activity", color: "blue", components: [{ name: "Prometheus", port: "9090" }, { name: "AlertManager", port: "9093" }, { name: "OpenSearch", port: "9200" }] } },
-  // AutoSphere Core
-  { id: "autosphere", type: "infraLayer", position: { x: 220, y: 0 }, data: { label: "AutoSphere Core", icon: "brain", color: "purple", components: [{ name: "LangGraph Engine", port: "8000" }, { name: "Qdrant", port: "6333" }, { name: "Redis", port: "6379" }, { name: "PostgreSQL", port: "5432" }] } },
+  // REMEdion Core
+  { id: "autosphere", type: "infraLayer", position: { x: 220, y: 0 }, data: { label: "REMEdion Core", icon: "brain", color: "purple", components: [{ name: "Mastra Engine", port: "8000" }, { name: "Qdrant", port: "6333" }, { name: "Redis", port: "6379" }, { name: "PostgreSQL", port: "5432" }] } },
   // Execution Layer
   { id: "execution", type: "infraLayer", position: { x: 440, y: 0 }, data: { label: "Execution Layer", icon: "server", color: "orange", components: [{ name: "AWX", port: "443" }, { name: "Grafana MCP", port: "stdio" }, { name: "Redmine", port: "3000" }] } },
   // Target Platform
@@ -229,7 +229,7 @@ export default function PhysicalArchitectureSlide() {
         <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-white to-transparent">
           <div>
             <h2 className="text-xl font-bold text-slate-800">Physical Architecture</h2>
-            <p className="text-sm text-slate-500">Kubernetes deployment topology and infrastructure</p>
+            <p className="text-sm text-slate-500">Deployment topology and infrastructure layers</p>
           </div>
           <Button
             variant="outline"
@@ -264,15 +264,16 @@ export default function PhysicalArchitectureSlide() {
 
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
+      <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
-          badge="6 • Architecture"
+          badge="6 - Architecture"
           title="Physical Architecture"
-          subtitle="Kubernetes deployment topology and infrastructure"
+          subtitle="Deployment topology and infrastructure layers"
+          className="mb-3 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
 
-        <div className="flex-1 grid grid-cols-4 gap-3">
-          <div className="col-span-3 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+        <div className="flex-1 min-h-0 grid grid-cols-4 gap-2.5">
+          <div className="col-span-3 min-h-0 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -320,7 +321,7 @@ export default function PhysicalArchitectureSlide() {
             </ReactFlow>
           </div>
 
-          <div className="space-y-3">
+          <div className="min-h-0 space-y-2.5">
             <Card className="shadow-lg">
               <CardContent className="p-3">
                 <h3 className="font-bold text-sm mb-2 flex items-center gap-2">

@@ -218,7 +218,7 @@ function CoreEngineNode({ data }: NodeProps) {
       <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-500/50 shadow-xl min-w-[260px]">
         <div className="flex items-center gap-2 mb-3">
           <Brain className="h-6 w-6 text-purple-500" />
-          <span className="font-bold text-sm">AutoSphere Core Engine</span>
+          <span className="font-bold text-sm">REMEdion Core Engine</span>
         </div>
         <div className="grid grid-cols-4 gap-1 mb-2">
           {steps.map((step, i) => (
@@ -237,7 +237,7 @@ function CoreEngineNode({ data }: NodeProps) {
           ))}
         </div>
         <div className="text-[10px] text-muted-foreground text-center">
-          LangGraph State Machine
+          Mastra State Machine
         </div>
       </div>
       <Handle type="source" position={Position.Right} className="w-3 h-3 !bg-primary" />
@@ -437,7 +437,7 @@ const initialNodes: Node[] = [
     draggable: false,
     selectable: false,
     data: {
-      label: "AutoSphere Agentic SaaS",
+      label: "REMEdion Orchestration Layer",
       width: 500,
       height: 500,
       borderColor: "#8b5cf6",
@@ -911,8 +911,8 @@ export default function InteractivePipelineSlide() {
       features: ["Alert grouping", "Route matching", "Inhibition rules", "Notification channels"],
     },
     core: {
-      title: "AutoSphere Core",
-      description: "LangGraph-based agentic workflow for self-healing automation",
+      title: "REMEdion Core",
+      description: "Mastra-based agentic workflow for self-healing automation",
       features: ["20+ nodes", "Parallel agents", "Policy engine", "Safe execution"],
     },
     "metrics-agent": {
@@ -944,19 +944,20 @@ export default function InteractivePipelineSlide() {
 
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
+      <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
-          badge="6 • Architecture"
-          title="OpenStack Observability Pipeline"
-          subtitle="Click nodes to explore — Watch data flow from infrastructure to self-healing"
+          badge="6 - Architecture"
+          title="Global Architecture and Data Flow"
+          subtitle="From observability signals to assisted remediation"
+          className="mb-3 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:max-w-4xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
 
-        <div className="flex-1 grid grid-cols-4 gap-3">
+        <div className="flex-1 min-h-0 grid grid-cols-4 gap-2.5">
           {/* Flow Diagram */}
-          <div className="col-span-3 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+          <div className="col-span-3 min-h-0 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <FullscreenFlowWrapper
-              title="OpenStack Observability Pipeline"
-              subtitle="Complete data flow from infrastructure to self-healing"
+              title="Global Architecture and Data Flow"
+              subtitle="From observability signals to assisted remediation"
             >
               <ReactFlow
               nodes={nodes}
@@ -968,29 +969,30 @@ export default function InteractivePipelineSlide() {
               nodesDraggable={!isLocked}
               nodesConnectable={false}
               fitView
+              fitViewOptions={{ padding: 0.06 }}
               minZoom={0.4}
               maxZoom={1.5}
-              defaultViewport={{ x: 20, y: 80, zoom: 0.75 }}
+              defaultViewport={{ x: 12, y: 36, zoom: 0.78 }}
             >
               <Background color="#94a3b8" gap={20} size={1} />
               <Controls showInteractive={false} />
-              <div className="absolute top-2 right-2 z-10 flex gap-2">
+              <div className="absolute top-2 right-2 z-10 flex gap-1.5">
                 <Button
                   size="sm"
                   variant={isLocked ? "default" : "outline"}
                   onClick={toggleLock}
-                  className="h-8 px-3"
+                  className="h-7 px-2.5 text-xs"
                 >
-                  {isLocked ? <Lock className="h-4 w-4 mr-1" /> : <Unlock className="h-4 w-4 mr-1" />}
+                  {isLocked ? <Lock className="h-3.5 w-3.5 mr-1" /> : <Unlock className="h-3.5 w-3.5 mr-1" />}
                   {isLocked ? "Locked" : "Unlocked"}
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={resetPositions}
-                  className="h-8 px-3"
+                  className="h-7 px-2.5 text-xs"
                 >
-                  <RotateCcw className="h-4 w-4 mr-1" />
+                  <RotateCcw className="h-3.5 w-3.5 mr-1" />
                   Reset
                 </Button>
               </div>
@@ -999,19 +1001,19 @@ export default function InteractivePipelineSlide() {
           </div>
 
           {/* Info Panel */}
-          <div className="space-y-3">
+          <div className="min-h-0 space-y-2.5">
             <Card className="shadow-lg">
-              <CardContent className="p-3">
-                <h3 className="font-bold text-sm mb-2 flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-primary" />
+              <CardContent className="p-2.5">
+                <h3 className="font-bold text-sm mb-1.5 flex items-center gap-2">
+                  <Zap className="h-3.5 w-3.5 text-primary" />
                   {selectedNode && nodeDetails[selectedNode]
                     ? nodeDetails[selectedNode].title
                     : "Pipeline Overview"}
                 </h3>
-                <p className="text-xs text-muted-foreground mb-2">
+                <p className="text-xs leading-snug text-muted-foreground mb-2">
                   {selectedNode && nodeDetails[selectedNode]
                     ? nodeDetails[selectedNode].description
-                    : "Two data paths: Logs via Fluentd → OpenSearch, Metrics via Exporters → Prometheus → Alertmanager"}
+                    : "Two data paths: Logs via Fluentd -> OpenSearch, Metrics via Exporters -> Prometheus -> Alertmanager"}
                 </p>
                 {selectedNode && nodeDetails[selectedNode] && (
                   <div className="space-y-1">
@@ -1027,8 +1029,8 @@ export default function InteractivePipelineSlide() {
             </Card>
 
             <Card className="shadow-md">
-              <CardContent className="p-3">
-                <h4 className="font-semibold text-xs mb-2">Data Flow Legend</h4>
+              <CardContent className="p-2.5">
+                <h4 className="font-semibold text-xs mb-1.5">Data Flow Legend</h4>
                 <div className="space-y-1.5 text-xs">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-0.5 bg-cyan-500" />
@@ -1040,7 +1042,7 @@ export default function InteractivePipelineSlide() {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-0.5 bg-purple-500" />
-                    <span>Alert → Core Engine</span>
+                    <span>{"Alert -> Core Engine"}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-0.5 bg-green-500" />
@@ -1055,22 +1057,22 @@ export default function InteractivePipelineSlide() {
             </Card>
 
             <Card className="shadow-md bg-gradient-to-br from-primary/5 to-secondary/5">
-              <CardContent className="p-3">
-                <div className="grid grid-cols-2 gap-2 text-center">
+              <CardContent className="p-2.5">
+                <div className="grid grid-cols-2 gap-1.5 text-center">
                   <div>
-                    <div className="text-xl font-bold text-cyan-500">2</div>
+                    <div className="text-lg font-bold text-cyan-500">2</div>
                     <div className="text-[10px] text-muted-foreground">Data Pipelines</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-purple-500">3</div>
+                    <div className="text-lg font-bold text-purple-500">3</div>
                     <div className="text-[10px] text-muted-foreground">AI Agents</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-orange-500">3</div>
+                    <div className="text-lg font-bold text-orange-500">3</div>
                     <div className="text-[10px] text-muted-foreground">MCP Servers</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-green-500">20+</div>
+                    <div className="text-lg font-bold text-green-500">20+</div>
                     <div className="text-[10px] text-muted-foreground">Graph Nodes</div>
                   </div>
                 </div>

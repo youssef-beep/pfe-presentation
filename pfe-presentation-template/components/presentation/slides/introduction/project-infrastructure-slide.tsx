@@ -3,7 +3,7 @@ import SlideWrapper from "../../slide-wrapper"
 import SlideHeader from "../../slide-header"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { 
   Brain, Zap, ArrowRight, Server, Activity, Database, 
   Network, BarChart3, Cpu, Layers
@@ -18,7 +18,7 @@ const monitoringTools = [
   { icon: Network, name: "RabbitMQ", desc: "Messaging", color: "text-green-600" },
 ]
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1, 
@@ -26,7 +26,7 @@ const containerVariants = {
   }
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 

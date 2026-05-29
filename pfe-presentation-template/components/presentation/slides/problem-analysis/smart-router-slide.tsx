@@ -429,15 +429,16 @@ export default function SmartRouterSlide() {
 
   return (
     <SlideWrapper>
-      <div className="h-full flex flex-col">
+      <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
-          badge="6 • Architecture"
+          badge="6 - Architecture"
           title="Smart Router: Rule-Based Routing"
           subtitle="No LLM latency, deterministic routing in <10ms"
+          className="mb-3 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
 
-        <div className="flex-1 grid grid-cols-4 gap-4">
-          <div className="col-span-3 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+        <div className="flex-1 min-h-0 grid grid-cols-4 gap-3">
+          <div className="col-span-3 min-h-0 rounded-xl overflow-hidden border shadow-lg bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -447,83 +448,84 @@ export default function SmartRouterSlide() {
               nodesDraggable={!isLocked}
               nodesConnectable={false}
               fitView
+              fitViewOptions={{ padding: 0.08 }}
               minZoom={0.5}
               maxZoom={1.5}
-              defaultViewport={{ x: 60, y: 60, zoom: 0.8 }}
+              defaultViewport={{ x: 48, y: 34, zoom: 0.82 }}
             >
               <Background color="#94a3b8" gap={30} size={1} />
               <Controls showInteractive={false} />
-              <div className="absolute top-3 right-3 flex gap-2 z-50">
-                <Button size="sm" variant="outline" onClick={() => setIsFullscreen(true)} className="h-9 px-3 gap-1.5 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
+              <div className="absolute top-2.5 right-2.5 flex gap-1.5 z-50">
+                <Button size="sm" variant="outline" onClick={() => setIsFullscreen(true)} className="h-8 px-2.5 gap-1 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
                   <Maximize2 className="h-4 w-4" />
                   Fullscreen
                 </Button>
-                <Button size="sm" onClick={toggleLock} className={`h-9 px-3 gap-1.5 text-xs font-medium shadow-md ${isLocked ? "bg-green-600 hover:bg-green-700 text-white" : "bg-white hover:bg-gray-100 text-gray-700 border border-gray-300"}`}>
+                <Button size="sm" onClick={toggleLock} className={`h-8 px-2.5 gap-1 text-xs font-medium shadow-md ${isLocked ? "bg-green-600 hover:bg-green-700 text-white" : "bg-white hover:bg-gray-100 text-gray-700 border border-gray-300"}`}>
                   {isLocked ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                   {isLocked ? "Locked" : "Drag"}
                 </Button>
-                <Button size="sm" variant="outline" onClick={resetPositions} className="h-9 px-3 gap-1.5 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
+                <Button size="sm" variant="outline" onClick={resetPositions} className="h-8 px-2.5 gap-1 text-xs font-medium shadow-md bg-white hover:bg-gray-100 border border-gray-300">
                   <RotateCcw className="h-4 w-4" />
                 </Button>
               </div>
             </ReactFlow>
           </div>
 
-          <div className="space-y-4">
+          <div className="min-h-0 space-y-3">
             <Card className="shadow-lg">
-              <CardContent className="p-4">
-                <h3 className="font-bold text-base mb-3 flex items-center gap-2">
+              <CardContent className="p-3">
+                <h3 className="font-bold text-sm mb-2 flex items-center gap-2">
                   <GitBranch className="h-5 w-5 text-purple-500" />
                   Routing Logic
                 </h3>
-                <div className="space-y-3">
-                  <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                <div className="space-y-2">
+                  <div className="p-2.5 rounded-lg bg-green-500/10 border border-green-500/30">
                     <div className="flex items-center gap-2 text-green-600 font-bold">
                       <Zap className="h-4 w-4" />
                       FAST PATH
                     </div>
-                    <p className="text-green-600/70 text-sm mt-1">confidence ≥ 95% → Skip agents</p>
+                    <p className="text-green-600/70 text-xs mt-1 leading-snug">confidence ≥ 95% → Skip agents</p>
                   </div>
-                  <div className="p-3 rounded-lg bg-orange-500/10 border border-orange-500/30">
+                  <div className="p-2.5 rounded-lg bg-orange-500/10 border border-orange-500/30">
                     <div className="flex items-center gap-2 text-orange-600 font-bold">
                       <Bot className="h-4 w-4" />
                       INVESTIGATION
                     </div>
-                    <p className="text-orange-600/70 text-sm mt-1">Spawn 1-3 agents in parallel</p>
+                    <p className="text-orange-600/70 text-xs mt-1 leading-snug">Spawn 1-3 agents in parallel</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="shadow-lg">
-              <CardContent className="p-4">
-                <h4 className="font-bold text-base mb-3">Performance Impact</h4>
-                <div className="space-y-3">
+              <CardContent className="p-3">
+                <h4 className="font-bold text-sm mb-2">Performance Impact</h4>
+                <div className="space-y-2.5">
                   <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground text-sm">Fast Path MTTR</span>
-                    <span className="text-green-500 font-bold text-base">30-60s</span>
+                    <span className="text-muted-foreground text-xs">Fast Path MTTR</span>
+                    <span className="text-green-500 font-bold text-sm">30-60s</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground text-sm">Investigation MTTR</span>
-                    <span className="text-orange-500 font-bold text-base">2-5min</span>
+                    <span className="text-muted-foreground text-xs">Investigation MTTR</span>
+                    <span className="text-orange-500 font-bold text-sm">2-5min</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground text-sm">Routing Decision</span>
-                    <span className="text-purple-500 font-bold text-base">&lt;10ms</span>
+                    <span className="text-muted-foreground text-xs">Routing Decision</span>
+                    <span className="text-purple-500 font-bold text-sm">&lt;10ms</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="shadow-lg bg-gradient-to-br from-primary/5 to-secondary/5">
-              <CardContent className="p-4">
-                <div className="grid grid-cols-2 gap-3 text-center">
+              <CardContent className="p-3">
+                <div className="grid grid-cols-2 gap-2 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-green-500">93%</div>
+                    <div className="text-xl font-bold text-green-500">93%</div>
                     <div className="text-xs text-muted-foreground">MTTR Reduction</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-500">0</div>
+                    <div className="text-xl font-bold text-purple-500">0</div>
                     <div className="text-xs text-muted-foreground">LLM Calls</div>
                   </div>
                 </div>

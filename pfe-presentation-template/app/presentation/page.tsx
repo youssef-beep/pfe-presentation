@@ -126,7 +126,7 @@ export default function PresentationPage() {
       "Maison du Web", // 4
       "Problématique", // 5
       "Current Problems", // 6
-      "Proposed Solution - AutoSphere", // 7
+      "Proposed Solution - REMEdion", // 7
       "Actors & Requirements", // 8
       "Technologies Used", // 9
       "Project Planning", // 10
@@ -142,7 +142,7 @@ export default function PresentationPage() {
       "Execution Pipeline", // 20
       "MCP Connectors", // 21
       "Live Demonstration", // 22
-      "AutoSphere in Action", // 23
+      "REMEdion in Action", // 23
       "Implementation", // 24
       "Development Environment", // 25
       "KPI Improvements", // 26
