@@ -15,7 +15,7 @@ const sections = [
   { title: "Objectives & Scope", icon: ClipboardList, targetSlide: 8, description: "Requirements and system scope", slides: "8-9" },
   { title: "Project Planning", icon: Calendar, targetSlide: 10, description: "Kanban & milestones", slides: "10-11" },
   { title: "Architecture", icon: Network, targetSlide: 12, description: "Mastra workflow, agents, policy, MCP", slides: "12-21" },
-  { title: "Implementation", icon: Code, targetSlide: 24, description: "Demo, results & validation", slides: "24-29" },
+  { title: "Implementation", icon: Code, targetSlide: 22, description: "Implementation, results & validation", slides: "22-27" },
 ]
 
 export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {

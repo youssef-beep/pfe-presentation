@@ -37,10 +37,6 @@ import McpConnectorsSlide from "@/components/presentation/slides/problem-analysi
 import ProjectPlanningTitleSlide from "@/components/presentation/slides/project-management/project-planning-title-slide"
 import GanttChartSlide from "@/components/presentation/slides/project-management/gantt-chart-slide"
 
-// Demo slides
-import DemoTitleSlide from "@/components/presentation/slides/results-conclusion/demo-title-slide"
-import DemoVideoSlide from "@/components/presentation/slides/results-conclusion/demo-video-slide"
-
 // Results and conclusion slides
 import RealisationTitleSlide from "@/components/presentation/slides/results-conclusion/realisation-title-slide"
 import EnvironmentToolsSlide from "@/components/presentation/slides/results-conclusion/environment-tools-slide"
@@ -100,17 +96,13 @@ export default function PresentationPage() {
       <ExecutionPipelineSlide key="execution-pipeline" />,
       <McpConnectorsSlide key="mcp-connectors" />,
 
-      // SECTION 7: Demonstration (slides 23-24)
-      <DemoTitleSlide key="demo-title" />,
-      <DemoVideoSlide key="demo-video" />,
-
-      // SECTION 8: Implementation (slides 25-28)
+      // SECTION 7: Implementation (slides 22-25)
       <RealisationTitleSlide key="realisation-title" />,
       <EnvironmentToolsSlide key="environment-tools" />,
       <KpiImprovementsSlide key="kpi-improvements" />,
       <TestResultsSlide key="test-results" />,
 
-      // SECTION 9: Conclusion (slides 29-30)
+      // SECTION 8: Conclusion (slides 26-27)
       <ConclusionContentSlide key="conclusion" />,
       <ThankYouSlide key="thank-you" />,
     ],
@@ -141,14 +133,12 @@ export default function PresentationPage() {
       "Policy Engine", // 19
       "Execution Pipeline", // 20
       "MCP Connectors", // 21
-      "Live Demonstration", // 22
-      "REMEdion in Action", // 23
-      "Implementation", // 24
-      "Development Environment", // 25
-      "KPI Improvements", // 26
-      "Test Results", // 27
-      "Summary & Perspectives", // 28
-      "Thank You", // 29
+      "Implementation", // 22
+      "Development Environment", // 23
+      "KPI Improvements", // 24
+      "Test Results", // 25
+      "Summary & Perspectives", // 26
+      "Thank You", // 27
     ],
     []
   )
