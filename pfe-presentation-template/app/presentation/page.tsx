@@ -69,14 +69,14 @@ export default function PresentationPage() {
       <ProjectContextSlide key="project-context" />,
       <CompanyOverviewSlide key="company-overview" />,
 
-      // SECTION 2: Problématique (slides 5-6)
+      // SECTION 2: General Context (slides 5-6)
       <CompanyPresentationTitleSlide key="company-title" />,
       <CurrentArchitectureProblemsSlide key="problems" />,
 
       // SECTION 3: Proposed Solution (slide 7)
       <ProposedSolutionSlide key="solution" />,
 
-      // SECTION 4: Specifications (slides 8-9)
+      // SECTION 4: Objectives, Scope & Stack (slides 8-9)
       <ActorsRequirementsSlide key="actors-requirements" />,
       <TechnologiesUsedSlide key="technologies" />,
 
@@ -96,7 +96,7 @@ export default function PresentationPage() {
       <ExecutionPipelineSlide key="execution-pipeline" />,
       <McpConnectorsSlide key="mcp-connectors" />,
 
-      // SECTION 7: Implementation (slides 22-25)
+      // SECTION 7: Implementation & Validation (slides 22-25)
       <RealisationTitleSlide key="realisation-title" />,
       <EnvironmentToolsSlide key="environment-tools" />,
       <KpiImprovementsSlide key="kpi-improvements" />,
@@ -116,27 +116,27 @@ export default function PresentationPage() {
       "Introduction", // 2
       "Context & Importance", // 3
       "Maison du Web", // 4
-      "Problématique", // 5
-      "Current Problems", // 6
+      "General Context", // 5
+      "Problem Statement", // 6
       "Proposed Solution - REMEdion", // 7
-      "Actors & Requirements", // 8
+      "Objectives & Scope", // 8
       "Technologies Used", // 9
       "Project Planning", // 10
-      "Gantt Chart & Milestones", // 11
+      "Planning Methodology", // 11
       "System Architecture", // 12
-      "Interactive Pipeline", // 13
-      "Logical Architecture", // 14
+      "Architecture & Data Flow", // 13
+      "Core Workflow Architecture", // 14
       "Physical Architecture", // 15
       "Kubernetes Architecture", // 16
       "Smart Router", // 17
       "AI Investigation Agents", // 18
       "Policy Engine", // 19
-      "Execution Pipeline", // 20
+      "Safe Remediation Pipeline", // 20
       "MCP Connectors", // 21
       "Implementation", // 22
       "Development Environment", // 23
-      "KPI Improvements", // 24
-      "Test Results", // 25
+      "Evaluation Indicators", // 24
+      "Test Coverage & Validation", // 25
       "Summary & Perspectives", // 26
       "Thank You", // 27
     ],
