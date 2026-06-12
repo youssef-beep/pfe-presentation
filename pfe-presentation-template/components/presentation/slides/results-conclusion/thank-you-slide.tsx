@@ -25,7 +25,7 @@ export default function ThankYouSlide() {
               Project Summary
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="font-bold text-primary">REMEdion</span> is an AI-driven self-healing automation system
+              <span className="font-bold text-primary">Remedion</span> is an AI-driven self-healing automation system
               that reduces manual SRE work by <span className="text-green-500 font-bold">85%</span>,
               MTTR by <span className="text-green-500 font-bold">93%</span>,
               and alert volume by <span className="text-green-500 font-bold">70%</span> through

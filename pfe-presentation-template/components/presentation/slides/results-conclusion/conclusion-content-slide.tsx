@@ -114,7 +114,7 @@ export default function ConclusionContentSlide() {
                   <Badge className="bg-purple-500 px-3 py-1.5 text-base">3 MCP Servers</Badge>
                 </div>
                 <p className="text-base leading-snug text-muted-foreground">
-                  REMEdion demonstrates how Agentic AI can support safer and more structured SRE operations.
+                  Remedion demonstrates how Agentic AI can support safer and more structured SRE operations.
                 </p>
               </CardContent>
             </Card>

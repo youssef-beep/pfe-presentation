@@ -16,12 +16,12 @@ export default function ProposedSolutionSlide() {
   return (
     <SlideWrapper>
       <div className="h-full min-h-0 flex flex-col">
-        {/* Header with REMEdion Logo */}
+        {/* Header with Remedion Logo */}
         <div className="mb-3">
           <div>
             <SlideHeader
               badge="3 - Proposed Solution"
-              title="REMEdion"
+              title="Remedion"
               subtitle="Intelligent Self-Healing System powered by Agentic AI"
               className="mb-0 text-left [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-5xl md:[&>h1]:text-6xl lg:[&>h1]:text-7xl [&>p]:mx-0 [&>p]:max-w-none [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
             />

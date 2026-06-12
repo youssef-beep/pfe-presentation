@@ -1,4 +1,4 @@
-# REMEdion – Comprehensive Technical Presentation
+# Remedion – Comprehensive Technical Presentation
 ## Agentic Self-Healing Automation for Cloud & Infrastructure
 
 **Last Updated:** November 25, 2025  
@@ -12,7 +12,7 @@
 
 ## 1️⃣ Title & Company Context
 
-**REMEdion** is an AI-driven SRE Co-Pilot that transforms reactive infrastructure operations into proactive, self-healing automation.
+**Remedion** is an AI-driven SRE Co-Pilot that transforms reactive infrastructure operations into proactive, self-healing automation.
 
 ### Company Profile: Maisonduweb
 
@@ -23,7 +23,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ---
 
-## 2️⃣ Problem Statement: Before REMEdion
+## 2️⃣ Problem Statement: Before Remedion
 
 ### Existing Landscape Critique
 
@@ -37,7 +37,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ### Quantified Pain Points
 
-**Before REMEdion:**
+**Before Remedion:**
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │ OPERATIONAL PAIN METRICS (Baseline)                            │
@@ -64,13 +64,13 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ---
 
-## 3️⃣ Solution: REMEdion Architecture
+## 3️⃣ Solution: Remedion Architecture
 
 ### High-Level Capabilities
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    REMEDION CAPABILITIES                        │
+│                    Remedion CAPABILITIES                        │
 ├─────────────────────────────────────────────────────────────────┤
 │ ✅ Anomaly Detection     │ Reactive (alerts) + Predictive (ML)  │
 │ ✅ Correlation           │ Group related alerts → single incident│
@@ -88,7 +88,7 @@ Maisonduweb is a cloud engineering and SRE consulting company specializing in:
 
 ## 3.1 System Layers & Project Scope
 
-REMEdion runs on top of an existing observability and automation platform.  
+Remedion runs on top of an existing observability and automation platform.
 This repository contains **only the Agentic Core Engine** – not the full monitoring stack.
 
 ### 🔧 Observability & Monitoring Layer (Existing Platform – outside this repo)
@@ -104,10 +104,10 @@ Provided by the production environment and operated by Maisonduweb:
 - **Alerts**
   - Alertmanager – rule‑based reactive alerts
   - OpenSearch detectors – predictive alerts
-  - These alerts are emitted into the REMEdion Core Engine as input events
+  - These alerts are emitted into the Remedion Core Engine as input events
 
 
-### 🧠 REMEdion Agentic Core Engine 
+### 🧠 Remedion Agentic Core Engine
 
 Implemented in this project using **Mastra**, **Ollama/Claude**, **RAG (Qdrant)**, and **MCP servers**:
 
@@ -129,7 +129,7 @@ The rest of this document focuses on this **Agentic Core Engine**.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│                    REMEDION MASTRA WORKFLOW                         │
+│                    Remedion MASTRA WORKFLOW                         │
 │                                                                       │
 │   ┌─────────────────────── INGESTION PIPELINE ───────────────────┐   │
 │   │                                                               │   │
@@ -265,7 +265,7 @@ The rest of this document focuses on this **Agentic Core Engine**.
             │                    │                    │
             ▼                    ▼                    ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│                    REMEDION CORE ENGINE                              │
+│                    Remedion CORE ENGINE                              │
 │                                                                       │
 │  ┌────────────────────────────────────────────────────────────────┐  │
 │  │                    MASTRA STATE MACHINE                        │  │
@@ -942,7 +942,7 @@ Discovery: RabbitMQ Prometheus plugin was disabled
 
 ## 1️⃣3️⃣ Conclusion
 
-**REMEdion demonstrates how agentic AI transforms infrastructure operations:**
+**Remedion demonstrates how agentic AI transforms infrastructure operations:**
 
 | Achievement | Impact |
 |-------------|--------|

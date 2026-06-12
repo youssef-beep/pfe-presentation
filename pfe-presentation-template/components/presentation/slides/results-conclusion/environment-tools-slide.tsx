@@ -7,7 +7,7 @@ import { Brain, Eye, Folder, Terminal } from "lucide-react"
 const developmentTools = [
   { name: "VS Code", description: "Main IDE for implementation and debugging" },
   { name: "Git + GitHub", description: "Version control and collaboration" },
-  { name: "TypeScript", description: "Main development language for REMEdion" },
+  { name: "TypeScript", description: "Main development language for Remedion" },
   { name: "Pytest", description: "Automated validation for core components" },
 ]
 

@@ -39,7 +39,7 @@ export default function McpConnectorsSlide() {
         <SlideHeader
           badge="6 - Architecture"
           title="MCP Connectors"
-          subtitle="Connecting REMEdion to external operational tools"
+          subtitle="Connecting Remedion to external operational tools"
           className="mb-4 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />
 

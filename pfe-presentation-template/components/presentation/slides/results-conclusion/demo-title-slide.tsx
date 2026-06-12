@@ -55,7 +55,7 @@ export default function DemoTitleSlide() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-2xl text-muted-foreground max-w-2xl leading-relaxed"
         >
-          Watch REMEdion detect, investigate, and assist incident remediation
+          Watch Remedion detect, investigate, and assist incident remediation
         </motion.p>
 
         {/* Decorative line */}

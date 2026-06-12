@@ -55,7 +55,7 @@ export default function DemoVideoSlide() {
       <div className="h-full flex flex-col">
         <SlideHeader
           badge="7 • Demonstration"
-          title="REMEdion in Action"
+          title="Remedion in Action"
           subtitle="End-to-end incident resolution demonstration"
         />
 
@@ -83,7 +83,7 @@ export default function DemoVideoSlide() {
                   <iframe
                     className="w-full h-full"
                     src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1`}
-                    title="REMEdion Demo"
+                    title="Remedion Demo"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

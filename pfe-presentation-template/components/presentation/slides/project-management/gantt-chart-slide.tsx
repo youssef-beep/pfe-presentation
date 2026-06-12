@@ -100,7 +100,7 @@ export default function GanttChartSlide() {
       <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
           badge="5 - Project Planning"
-          title="REMEdion 4-Month Agile/Kanban Methodology"
+          title="Remedion 4-Month Agile/Kanban Methodology"
           subtitle="Iterative task flow from foundation to validation"
           className="mb-4 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-4xl md:[&>h1]:text-5xl lg:[&>h1]:text-5xl xl:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
         />

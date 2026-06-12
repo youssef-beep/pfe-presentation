@@ -29,7 +29,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
           </Badge>
         </motion.div>
 
-        {/* REMEdion Logo */}
+        {/* Remedion Logo */}
         <motion.div
           className="relative w-32 h-32 mb-2"
           initial={{ opacity: 0, scale: 0.5 }}
@@ -38,7 +38,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
         >
           <Image
             src="/Logo-autoshpere.png"
-            alt="REMEdion Logo"
+            alt="Remedion Logo"
             fill
             className="object-contain"
           />
@@ -51,7 +51,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            REMEdion
+            Remedion
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground/90"

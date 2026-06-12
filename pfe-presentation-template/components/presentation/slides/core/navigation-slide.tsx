@@ -9,14 +9,14 @@ interface NavigationSlideProps {
 }
 
 const sections = [
-  { title: "Introduction", icon: BookOpen, targetSlide: 2, description: "Context & project overview", slides: "2-4" },
-  { title: "General Context", icon: Building, targetSlide: 5, description: "Host organization & problem statement", slides: "5-6" },
-  { title: "Proposed Solution", icon: Lightbulb, targetSlide: 7, description: "REMEdion overview & value proposition", slides: "7" },
-  { title: "Objectives, Scope & Stack", icon: ClipboardList, targetSlide: 8, description: "Requirements, scope, and technologies", slides: "8-9" },
-  { title: "Project Planning", icon: Calendar, targetSlide: 10, description: "Kanban methodology and milestones", slides: "10-11" },
-  { title: "Architecture", icon: Network, targetSlide: 12, description: "Workflow, agents, policy, execution, and MCP", slides: "12-21" },
-  { title: "Implementation & Validation", icon: Code, targetSlide: 22, description: "Environment, KPIs, and test results", slides: "22-25" },
-  { title: "Conclusion", icon: Brain, targetSlide: 26, description: "Summary, perspectives, and discussion", slides: "26-27" },
+  { title: "Introduction", icon: BookOpen, targetSlide: 2, description: "Context & project overview", slides: "2" },
+  { title: "General Context", icon: Building, targetSlide: 3, description: "Host organization & problem statement", slides: "3-4" },
+  { title: "Proposed Solution", icon: Lightbulb, targetSlide: 5, description: "Remedion overview & value proposition", slides: "5" },
+  { title: "Objectives, Scope & Stack", icon: ClipboardList, targetSlide: 6, description: "Requirements, scope, and technologies", slides: "6-8" },
+  { title: "Project Planning", icon: Calendar, targetSlide: 9, description: "Kanban methodology and milestones", slides: "9" },
+  { title: "Architecture", icon: Network, targetSlide: 10, description: "Workflow, agents, policy, execution, and MCP", slides: "10-17" },
+  { title: "Implementation & Validation", icon: Code, targetSlide: 18, description: "KPIs and test results", slides: "18-19" },
+  { title: "Conclusion", icon: Brain, targetSlide: 20, description: "Summary, perspectives, and discussion", slides: "20-21" },
 ]
 
 export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
@@ -26,7 +26,7 @@ export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
         <div className="text-center space-y-2">
           <Brain className="h-14 w-14 text-primary mx-auto" />
           <h1 className="text-4xl md:text-5xl font-bold text-primary">Presentation Outline</h1>
-          <p className="text-xl text-muted-foreground">REMEdion: AI-Driven Self-Healing Infrastructure</p>
+          <p className="text-xl text-muted-foreground">Remedion: AI-Driven Self-Healing Infrastructure</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full flex-1 content-center">
@@ -53,7 +53,7 @@ export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
         </div>
 
         <div className="text-center text-lg text-muted-foreground">
-          Click any section to navigate • Use ← → arrows to move between slides
+          Click any section to navigate - Use left/right arrows to move between slides
         </div>
       </div>
     </SlideWrapper>

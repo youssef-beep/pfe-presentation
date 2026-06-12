@@ -121,7 +121,7 @@ export default function ProjectContextSlide() {
                   <ArrowRight className="h-5 w-5 text-muted-foreground" />
                   
                   <Badge className="bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-3.5 py-1.5 text-lg font-bold">
-                    REMEdion
+                    Remedion
                   </Badge>
                 </div>
               </CardContent>

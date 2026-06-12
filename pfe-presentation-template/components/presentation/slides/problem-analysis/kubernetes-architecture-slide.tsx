@@ -54,14 +54,14 @@ const namespaces = [
   {
     name: "default",
     icon: Brain,
-    role: "REMEdion runtime layer",
+    role: "Remedion runtime layer",
     gradient: "from-indigo-500 to-violet-500",
     bgGradient: "from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30",
     borderColor: "border-indigo-300 dark:border-indigo-700",
     itemBorder: "border-indigo-100 dark:border-indigo-900",
     componentCols: "grid-cols-2",
     components: [
-      { name: "REMEdion Core", detail: "orchestration service" },
+      { name: "Remedion Core", detail: "orchestration service" },
       { name: "Mastra", detail: "workflow engine" },
       { name: "Qdrant", detail: "incident memory" },
       { name: "Redis", detail: "deduplication/cache" },
@@ -110,7 +110,7 @@ const stats = [
 const flowSteps = [
   { label: "monitoring", icon: Activity, tone: "bg-blue-100 text-blue-600 dark:bg-blue-900/30" },
   { label: "alerts", icon: Network, tone: "bg-slate-100 text-slate-600 dark:bg-slate-800" },
-  { label: "REMEdion runtime", icon: Brain, tone: "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30" },
+  { label: "Remedion runtime", icon: Brain, tone: "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30" },
   { label: "actions", icon: ArrowRight, tone: "bg-orange-100 text-orange-600 dark:bg-orange-900/30" },
   { label: "AWX", icon: Server, tone: "bg-red-100 text-red-600 dark:bg-red-900/30" },
   { label: "OpenStack", icon: Cloud, tone: "bg-green-100 text-green-600 dark:bg-green-900/30" },
@@ -243,7 +243,7 @@ export default function KubernetesArchitectureSlide() {
                   </div>
 
                   <div className="mt-3 rounded-lg border border-slate-200 bg-white/80 px-3 py-2 text-[10px] leading-snug text-muted-foreground dark:border-slate-700 dark:bg-slate-800/80">
-                    Observability signals are collected in monitoring, processed by REMEdion, then converted into
+                    Observability signals are collected in monitoring, processed by Remedion, then converted into
                     controlled automation actions through AWX.
                   </div>
                 </CardContent>

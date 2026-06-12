@@ -142,8 +142,8 @@ const nodeTypes = {
 const initialNodes: Node[] = [
   // Monitoring Layer
   { id: "monitoring", type: "infraLayer", position: { x: 0, y: 0 }, data: { label: "Monitoring", icon: "activity", color: "blue", components: [{ name: "Prometheus", port: "9090" }, { name: "AlertManager", port: "9093" }, { name: "OpenSearch", port: "9200" }] } },
-  // REMEdion Core
-  { id: "autosphere", type: "infraLayer", position: { x: 220, y: 0 }, data: { label: "REMEdion Core", icon: "brain", color: "purple", components: [{ name: "Mastra Engine", port: "8000" }, { name: "Qdrant", port: "6333" }, { name: "Redis", port: "6379" }, { name: "PostgreSQL", port: "5432" }] } },
+  // Remedion Core
+  { id: "autosphere", type: "infraLayer", position: { x: 220, y: 0 }, data: { label: "Remedion Core", icon: "brain", color: "purple", components: [{ name: "Mastra Engine", port: "8000" }, { name: "Qdrant", port: "6333" }, { name: "Redis", port: "6379" }, { name: "PostgreSQL", port: "5432" }] } },
   // Execution Layer
   { id: "execution", type: "infraLayer", position: { x: 440, y: 0 }, data: { label: "Execution Layer", icon: "server", color: "orange", components: [{ name: "AWX", port: "443" }, { name: "Grafana MCP", port: "stdio" }, { name: "Redmine", port: "3000" }] } },
   // Target Platform

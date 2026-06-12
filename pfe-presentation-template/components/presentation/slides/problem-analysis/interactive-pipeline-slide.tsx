@@ -218,7 +218,7 @@ function CoreEngineNode({ data }: NodeProps) {
       <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-500/50 shadow-xl min-w-[260px]">
         <div className="flex items-center gap-2 mb-3">
           <Brain className="h-6 w-6 text-purple-500" />
-          <span className="font-bold text-sm">REMEdion Core Engine</span>
+          <span className="font-bold text-sm">Remedion Core Engine</span>
         </div>
         <div className="grid grid-cols-4 gap-1 mb-2">
           {steps.map((step, i) => (
@@ -437,7 +437,7 @@ const initialNodes: Node[] = [
     draggable: false,
     selectable: false,
     data: {
-      label: "REMEdion Orchestration Layer",
+      label: "Remedion Orchestration Layer",
       width: 500,
       height: 500,
       borderColor: "#8b5cf6",
@@ -911,7 +911,7 @@ export default function InteractivePipelineSlide() {
       features: ["Alert grouping", "Route matching", "Inhibition rules", "Notification channels"],
     },
     core: {
-      title: "REMEdion Core",
+      title: "Remedion Core",
       description: "Mastra-based agentic workflow for self-healing automation",
       features: ["20+ nodes", "Parallel agents", "Policy engine", "Safe execution"],
     },

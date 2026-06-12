@@ -23,7 +23,7 @@ export default function SolutionSlide() {
   return (
     <SlideWrapper>
       <div className="h-full flex flex-col">
-        <SlideHeader badge="3 • Proposed Solution" title="REMEdion" subtitle="Intelligent Self-Healing System based on Agentic AI" />
+        <SlideHeader badge="3 • Proposed Solution" title="Remedion" subtitle="Intelligent Self-Healing System based on Agentic AI" />
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 space-y-3">
             <div className="flex items-center space-x-2 mb-2">
