@@ -94,7 +94,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Mm Ines Abdeljaoued-Tej</p>
+              <p className="text-muted-foreground">Dr. Ines Abdeljaoued-Tej</p>
               <p className="font-semibold">ESSAIT</p>
             </CardContent>
           </Card>
@@ -107,7 +107,7 @@ export default function HeroSlide({ onStartPresentation }: HeroSlideProps) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground"> Mohamed Naceur BenKhalifa</p>
+              <p className="text-muted-foreground">Mr. Mohamed Naceur BenKhalifa</p>
               <p className="font-semibold">Maison du Web</p>
             </CardContent>
           </Card>

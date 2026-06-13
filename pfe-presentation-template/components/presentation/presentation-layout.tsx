@@ -5,7 +5,18 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight, Home, Menu, Maximize, Minimize } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useEffect, useState } from "react" // Import useEffect and useState
+import { useEffect, useRef, useState } from "react"
+
+type PresenterAction = "NEXT" | "PREVIOUS" | "FULLSCREEN" | "IGNORED"
+
+interface PresenterKeyEvent {
+  key: string
+  code: string
+  keyCode: number
+  which: number
+  location: number
+  action: PresenterAction
+}
 
 interface PresentationLayoutProps {
   slides: React.ReactNode[]
@@ -22,8 +33,11 @@ export default function PresentationLayout({
   totalSlides,
   slideTitles,
 }: PresentationLayoutProps) {
+  const presentationRef = useRef<HTMLDivElement>(null)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+  const [presenterDebug, setPresenterDebug] = useState(false)
+  const [presenterEvents, setPresenterEvents] = useState<PresenterKeyEvent[]>([])
   const progressValue = ((currentSlide + 1) / totalSlides) * 100
 
   const goToNextSlide = () => {
@@ -38,12 +52,17 @@ export default function PresentationLayout({
     setCurrentSlide(index)
   }
 
+  const focusPresentation = () => {
+    requestAnimationFrame(() => presentationRef.current?.focus({ preventScroll: true }))
+  }
+
   // Full-screen toggle function
   const toggleFullScreen = async () => {
     if (!document.fullscreenElement) {
       try {
         await document.documentElement.requestFullscreen()
         setIsFullScreen(true)
+        focusPresentation()
       } catch (err) {
         console.error(`Error attempting to enable full-screen mode: ${(err as Error).message} (${(err as Error).name})`)
       }
@@ -59,35 +78,124 @@ export default function PresentationLayout({
     }
   }
 
-  // Effect for keyboard navigation and full-screen change listener
   useEffect(() => {
-    // Set mounted to true on client side
     setIsMounted(true)
-    
+    setPresenterDebug(new URLSearchParams(window.location.search).get("presenterDebug") === "1")
+    focusPresentation()
+  }, [])
+
+  // Capture phase keeps presenter navigation ahead of ReactFlow and other interactive slides.
+  useEffect(() => {
+    const recordPresenterEvent = (event: KeyboardEvent, action: PresenterAction) => {
+      if (!presenterDebug) return
+
+      const entry: PresenterKeyEvent = {
+        key: event.key,
+        code: event.code,
+        keyCode: event.keyCode,
+        which: event.which,
+        location: event.location,
+        action,
+      }
+
+      setPresenterEvents((events) => [entry, ...events].slice(0, 5))
+      console.log("[presenter-key]", entry)
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
+      const target = event.target as HTMLElement | null
+      const isTyping =
+        target?.matches("input, textarea, select") ||
+        target?.isContentEditable ||
+        Boolean(target?.closest("[contenteditable='true']"))
+
+      const key = event.key
+      const code = event.code
+      const keyCode = event.keyCode
+      const lowerKey = key.toLowerCase()
+      const isSpace = key === " " || key === "Spacebar" || code === "Space" || keyCode === 32
+      const isButtonActivation = Boolean(target?.closest("button")) && (isSpace || key === "Enter" || code === "Enter")
+
+      const isNext =
+        key === "PageDown" ||
+        code === "PageDown" ||
+        keyCode === 34 ||
+        key === "ArrowRight" ||
+        code === "ArrowRight" ||
+        keyCode === 39 ||
+        isSpace ||
+        key === "Enter" ||
+        code === "Enter" ||
+        keyCode === 13 ||
+        lowerKey === "n"
+
+      const isPrevious =
+        key === "PageUp" ||
+        code === "PageUp" ||
+        keyCode === 33 ||
+        key === "ArrowLeft" ||
+        code === "ArrowLeft" ||
+        keyCode === 37 ||
+        key === "Backspace" ||
+        code === "Backspace" ||
+        keyCode === 8 ||
+        lowerKey === "p"
+
+      const isF5 = key === "F5" || code === "F5" || keyCode === 116
+      const isEscape = key === "Escape" || code === "Escape" || keyCode === 27
+
+      if (isTyping || isButtonActivation || event.repeat || event.altKey || event.ctrlKey || event.metaKey) {
+        recordPresenterEvent(event, "IGNORED")
+        return
+      }
+
+      if (isNext) {
+        event.preventDefault()
+        event.stopPropagation()
         goToNextSlide()
-      } else if (event.key === "ArrowLeft") {
+        recordPresenterEvent(event, "NEXT")
+      } else if (isPrevious) {
+        event.preventDefault()
+        event.stopPropagation()
         goToPrevSlide()
+        recordPresenterEvent(event, "PREVIOUS")
+      } else if (isF5) {
+        event.preventDefault()
+        event.stopPropagation()
+        if (!document.fullscreenElement) {
+          void document.documentElement.requestFullscreen().then(focusPresentation).catch((error: Error) => {
+            console.error(`Error attempting to enable full-screen mode: ${error.message} (${error.name})`)
+          })
+        }
+        recordPresenterEvent(event, "FULLSCREEN")
+      } else if (isEscape && document.fullscreenElement) {
+        void document.exitFullscreen()
+        recordPresenterEvent(event, "FULLSCREEN")
+      } else {
+        recordPresenterEvent(event, "IGNORED")
       }
     }
 
     const handleFullScreenChange = () => {
       setIsFullScreen(!!document.fullscreenElement)
+      focusPresentation()
     }
 
-    document.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown, { capture: true })
     document.addEventListener("fullscreenchange", handleFullScreenChange)
 
-    // Cleanup
     return () => {
-      document.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("keydown", handleKeyDown, { capture: true })
       document.removeEventListener("fullscreenchange", handleFullScreenChange)
     }
-  }, [currentSlide, totalSlides]) // Add dependencies
+  }, [currentSlide, totalSlides, presenterDebug])
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-background via-blue-50 to-secondary/10 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/30">
+    <div
+      ref={presentationRef}
+      tabIndex={0}
+      className="flex flex-col h-screen bg-gradient-to-br from-background via-blue-50 to-secondary/10 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/30 outline-none"
+    >
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex-shrink-0">
         <div className="container flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-1 md:gap-2">
@@ -127,7 +235,7 @@ export default function PresentationLayout({
             )}
             {isMounted && (
               <span className="text-md font-bold text-muted-foreground hidden md:block">
-                Diapo {currentSlide + 1} sur {totalSlides}
+                Slide {currentSlide + 1} of {totalSlides}
               </span>
             )}
           </div>
@@ -188,7 +296,24 @@ export default function PresentationLayout({
 
       <main className="flex-1 min-h-0">{isMounted ? slides[currentSlide] : <div className="p-8 h-full flex items-center justify-center">Loading...</div>}</main>
 
-    
+      {presenterDebug && (
+        <aside className="fixed bottom-3 left-3 z-[100] w-80 rounded-md border border-slate-700 bg-slate-950/95 p-3 font-mono text-xs text-slate-100 shadow-xl pointer-events-none">
+          <div className="mb-2 font-sans text-sm font-semibold text-cyan-300">Presenter Debug</div>
+          {presenterEvents.length === 0 ? (
+            <div className="text-slate-400">Press a presenter key...</div>
+          ) : (
+            <div className="space-y-2">
+              {presenterEvents.map((event, index) => (
+                <div key={`${event.key}-${event.code}-${index}`} className={index === 0 ? "text-white" : "text-slate-400"}>
+                  <div className="font-semibold text-cyan-300">{event.action}</div>
+                  <div>key: {JSON.stringify(event.key)} | code: {event.code || "-"}</div>
+                  <div>keyCode: {event.keyCode} | which: {event.which} | location: {event.location}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </aside>
+      )}
     </div>
   )
 }

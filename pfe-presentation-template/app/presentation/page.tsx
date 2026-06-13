@@ -67,7 +67,6 @@ export default function PresentationPage() {
 
       // SECTION 4: Objectives, Scope & Stack
       <ActorsRequirementsSlide key="actors-requirements" />,
-      <AlertNormalizationExampleSlide key="alert-normalization" />,
       <TechnologiesUsedSlide key="technologies" />,
 
       // SECTION 5: Planning
@@ -76,6 +75,7 @@ export default function PresentationPage() {
       // SECTION 6: Architecture
       <InteractivePipelineSlide key="interactive-pipeline" />,
       <LogicalArchitectureSlide key="logical-arch" />,
+      <AlertNormalizationExampleSlide key="alert-normalization" />,
       <PhysicalArchitectureSlide key="physical-arch" />,
       <SmartRouterSlide key="smart-router" />,
       <AiAgentsOverviewSlide key="ai-agents" />,
@@ -103,11 +103,11 @@ export default function PresentationPage() {
       "Problem Statement", // 4
       "Proposed Solution - Remedion", // 5
       "Objectives & Scope", // 6
-      "Alert Normalization Example", // 7
-      "Technologies Used", // 8
-      "Planning Methodology", // 9
-      "Architecture & Data Flow", // 10
-      "Core Workflow Architecture", // 11
+      "Technologies Used", // 7
+      "Planning Methodology", // 8
+      "Architecture & Data Flow", // 9
+      "Core Workflow Architecture", // 10
+      "Alert Normalization Example", // 11
       "Physical Architecture", // 12
       "Smart Router", // 13
       "AI Investigation Agents", // 14

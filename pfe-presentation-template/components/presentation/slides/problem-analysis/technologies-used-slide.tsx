@@ -10,7 +10,7 @@ const technologies = [
     icon: Layers,
     items: [
       { name: "Mastra", logo: "/placeholder-logo.svg", desc: "Workflow" },
-      { name: "Mastra Agents", logo: "/placeholder-logo.svg", desc: "Reasoner / reporter" },
+      { name: "Mastra Agents", logo: "/placeholder-logo.svg", desc: "AI agents" },
       { name: "LLM Provider", logo: "https://ollama.ai/public/ollama.png", desc: "Model inference" },
     ],
   },
@@ -18,10 +18,9 @@ const technologies = [
     category: "AI & ML",
     icon: Brain,
     items: [
-      { name: "Ollama/Claude", logo: "https://ollama.ai/public/ollama.png", desc: "LLM" },
+      { name: "Ollama gpt-oss-20b", logo: "https://ollama.ai/public/ollama.png", desc: "LLM" },
       { name: "Qdrant", logo: "https://qdrant.tech/img/logo_with_text.png", desc: "Vector DB" },
-      { name: "Random Forest", logo: "https://cdn-icons-png.flaticon.com/512/2103/2103658.png", desc: "ML" },
-      { name: "Prophet", logo: "https://cdn-icons-png.flaticon.com/512/3281/3281289.png", desc: "Forecast" },
+      { name: "Random Cut Forest (RCF)", logo: "https://cdn-icons-png.flaticon.com/512/2103/2103658.png", desc: "ML" },
     ],
   },
   {

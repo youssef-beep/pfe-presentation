@@ -42,7 +42,7 @@ export default function AlertNormalizationExampleSlide() {
     <SlideWrapper>
       <div className="h-full min-h-0 flex flex-col">
         <SlideHeader
-          badge="4 - Specifications"
+          badge="6 - Architecture"
           title="Alert Normalization Example"
           subtitle="From raw monitoring payload to unified incident format"
           className="mb-4 [&>*:first-child]:mb-2 [&>*:first-child]:px-4 [&>*:first-child]:py-1.5 [&>*:first-child]:text-lg [&>h1]:mb-2 [&>h1]:text-5xl md:[&>h1]:text-6xl lg:[&>h1]:text-6xl [&>p]:text-lg [&>p]:leading-snug md:[&>p]:text-xl"
