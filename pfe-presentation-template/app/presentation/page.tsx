@@ -36,6 +36,12 @@ import KpiImprovementsSlide from "@/components/presentation/slides/results-concl
 import TestResultsSlide from "@/components/presentation/slides/results-conclusion/test-results-slide"
 import ConclusionContentSlide from "@/components/presentation/slides/results-conclusion/conclusion-content-slide"
 import ThankYouSlide from "@/components/presentation/slides/results-conclusion/thank-you-slide"
+import {
+  ConfidenceScoreBackupSlide,
+  PrometheusDiagnosisBackupSlide,
+  QdrantSearchBackupSlide,
+  RunbookMatchingBackupSlide,
+} from "@/components/presentation/slides/results-conclusion/backup-diagram-slides"
 
 export default function PresentationPage() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -75,7 +81,6 @@ export default function PresentationPage() {
       // SECTION 6: Architecture
       <InteractivePipelineSlide key="interactive-pipeline" />,
       <LogicalArchitectureSlide key="logical-arch" />,
-      <AlertNormalizationExampleSlide key="alert-normalization" />,
       <PhysicalArchitectureSlide key="physical-arch" />,
       <SmartRouterSlide key="smart-router" />,
       <AiAgentsOverviewSlide key="ai-agents" />,
@@ -90,34 +95,45 @@ export default function PresentationPage() {
       // SECTION 8: Conclusion
       <ConclusionContentSlide key="conclusion" />,
       <ThankYouSlide key="thank-you" />,
+
+      // Backup / Q&A slides (excluded from official numbering and outline)
+      <AlertNormalizationExampleSlide key="backup-alert-normalization" />,
+      <PrometheusDiagnosisBackupSlide key="backup-prometheus" />,
+      <QdrantSearchBackupSlide key="backup-qdrant" />,
+      <RunbookMatchingBackupSlide key="backup-runbook" />,
+      <ConfidenceScoreBackupSlide key="backup-confidence-score" />,
     ],
     []
   )
 
-  const slideTitles = useMemo(
+  const slideMetadata = useMemo(
     () => [
-      "Home", // 0
-      "Presentation Outline", // 1
-      "Context & Importance", // 2
-      "Maison du Web", // 3
-      "Problem Statement", // 4
-      "Proposed Solution - Remedion", // 5
-      "Objectives & Scope", // 6
-      "Technologies Used", // 7
-      "Planning Methodology", // 8
-      "Architecture & Data Flow", // 9
-      "Core Workflow Architecture", // 10
-      "Alert Normalization Example", // 11
-      "Physical Architecture", // 12
-      "Smart Router", // 13
-      "AI Investigation Agents", // 14
-      "Policy Engine", // 15
-      "Safe Remediation Pipeline", // 16
-      "MCP Connectors", // 17
-      "Evaluation Indicators", // 18
-      "Test Coverage & Validation", // 19
-      "Summary & Perspectives", // 20
-      "Thank You", // 21
+      { title: "Home" }, // 0
+      { title: "Presentation Outline" }, // 1
+      { title: "Context & Importance" }, // 2
+      { title: "Maison du Web" }, // 3
+      { title: "Problem Statement" }, // 4
+      { title: "Proposed Solution - Remedion" }, // 5
+      { title: "Objectives & Scope" }, // 6
+      { title: "Technologies Used" }, // 7
+      { title: "Planning Methodology" }, // 8
+      { title: "Architecture & Data Flow" }, // 9
+      { title: "Core Workflow Architecture" }, // 10
+      { title: "Physical Architecture" }, // 11
+      { title: "Smart Router" }, // 12
+      { title: "AI Investigation Agents" }, // 13
+      { title: "Policy Engine" }, // 14
+      { title: "Safe Remediation Pipeline" }, // 15
+      { title: "MCP Connectors" }, // 16
+      { title: "Evaluation Indicators" }, // 17
+      { title: "Test Coverage & Validation" }, // 18
+      { title: "Summary & Perspectives" }, // 19
+      { title: "Thank You" }, // 20
+      { title: "Alert Normalization Example", backup: true }, // 21
+      { title: "Metrics Agent", backup: true }, // 22
+      { title: "Incident Agent", backup: true }, // 23
+      { title: "Runbook Agent", backup: true }, // 24
+      { title: "How is the Confidence Score Calculated?", backup: true }, // 25
     ],
     []
   )
@@ -127,8 +143,7 @@ export default function PresentationPage() {
       slides={slides}
       currentSlide={currentSlide}
       setCurrentSlide={setCurrentSlide}
-      totalSlides={slides.length}
-      slideTitles={slideTitles}
+      slideMetadata={slideMetadata}
     />
   )
 }

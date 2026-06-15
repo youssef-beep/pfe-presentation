@@ -22,23 +22,25 @@ interface PresentationLayoutProps {
   slides: React.ReactNode[]
   currentSlide: number
   setCurrentSlide: (slide: number) => void
-  totalSlides: number
-  slideTitles: string[]
+  slideMetadata: Array<{ title: string; backup?: boolean }>
 }
 
 export default function PresentationLayout({
   slides,
   currentSlide,
   setCurrentSlide,
-  totalSlides,
-  slideTitles,
+  slideMetadata,
 }: PresentationLayoutProps) {
   const presentationRef = useRef<HTMLDivElement>(null)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const [presenterDebug, setPresenterDebug] = useState(false)
   const [presenterEvents, setPresenterEvents] = useState<PresenterKeyEvent[]>([])
-  const progressValue = ((currentSlide + 1) / totalSlides) * 100
+  const totalSlides = slides.length
+  const officialSlides = slideMetadata.filter((slide) => !slide.backup)
+  const isBackupSlide = Boolean(slideMetadata[currentSlide]?.backup)
+  const officialSlideNumber = slideMetadata.slice(0, currentSlide + 1).filter((slide) => !slide.backup).length
+  const progressValue = isBackupSlide ? 100 : (officialSlideNumber / officialSlides.length) * 100
 
   const goToNextSlide = () => {
     setCurrentSlide(Math.min(currentSlide + 1, totalSlides - 1))
@@ -210,18 +212,18 @@ export default function PresentationLayout({
                 <SheetContent side="left" className="w-[300px] sm:w-[400px]">
                   <nav className="flex flex-col gap-4 p-4">
                     <h3 className="font-semibold text-lg">Slides</h3>
-                    {slideTitles.map((title, index) => (
+                    {slideMetadata.map((slide, index) => ({ ...slide, index })).filter((slide) => !slide.backup).map((slide) => (
                       <Button
-                        key={index}
-                        variant={currentSlide === index ? "secondary" : "ghost"}
+                        key={slide.index}
+                        variant={currentSlide === slide.index ? "secondary" : "ghost"}
                         onClick={() => {
-                          goToSlide(index)
+                          goToSlide(slide.index)
                           // Consider closing the sheet after navigation on mobile
                           // This requires passing the sheet's open/setOpen state down or using a ref
                         }}
                         className="justify-start"
                       >
-                        {index + 1}. {title}
+                        {slide.index + 1}. {slide.title}
                       </Button>
                     ))}
                   </nav>
@@ -233,10 +235,13 @@ export default function PresentationLayout({
                 <Home className="h-5 w-5" />
               </Button>
             )}
-            {isMounted && (
+            {isMounted && !isBackupSlide && (
               <span className="text-md font-bold text-muted-foreground hidden md:block">
-                Slide {currentSlide + 1} of {totalSlides}
+                Slide {officialSlideNumber} of {officialSlides.length}
               </span>
+            )}
+            {isMounted && isBackupSlide && (
+              <span className="text-sm font-semibold text-muted-foreground hidden md:block">Backup / Q&amp;A</span>
             )}
           </div>
 
@@ -285,7 +290,7 @@ export default function PresentationLayout({
             {isMounted && (
               <>
                 <span className="text-xs font-medium text-muted-foreground">
-                  Slide {currentSlide + 1}/{totalSlides}
+                  {isBackupSlide ? "Backup / Q&A" : `Slide ${officialSlideNumber}/${officialSlides.length}`}
                 </span>
                 <Progress value={progressValue} className="w-1/2 h-1.5" />
               </>

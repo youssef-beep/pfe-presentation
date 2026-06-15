@@ -13,9 +13,9 @@ const sections = [
   { title: "Proposed Solution", icon: Lightbulb, targetSlide: 5, description: "Remedion overview & value proposition", slides: "5" },
   { title: "Objectives, Scope & Stack", icon: ClipboardList, targetSlide: 6, description: "Actors, requirements, scope & technologies", slides: "6-7" },
   { title: "Project Planning", icon: Calendar, targetSlide: 8, description: "Project timeline, phases & milestones", slides: "8" },
-  { title: "Architecture", icon: Network, targetSlide: 9, description: "Data flow, workflow, normalization, routing, agents, policy, remediation & MCP", slides: "9-17" },
-  { title: "Implementation & Validation", icon: Code, targetSlide: 18, description: "Evaluation indicators, test coverage & validation", slides: "18-19" },
-  { title: "Conclusion", icon: Brain, targetSlide: 20, description: "Summary, perspectives & discussion", slides: "20-21" },
+  { title: "Architecture", icon: Network, targetSlide: 9, description: "Data flow, workflow, routing, agents, policy, remediation & MCP", slides: "9-16" },
+  { title: "Implementation & Validation", icon: Code, targetSlide: 17, description: "Evaluation indicators, test coverage & validation", slides: "17-18" },
+  { title: "Conclusion", icon: Brain, targetSlide: 19, description: "Summary, perspectives & discussion", slides: "19-20" },
 ]
 
 export default function NavigationSlide({ onNavigate }: NavigationSlideProps) {
